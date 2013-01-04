@@ -19,9 +19,14 @@ public class Field {
 		//only check field if it is not empty and does not contain a wall
 		if (!objects.isEmpty() && !isWall()) {
 			if (containsPacman() && containsPellet()) {
-				//TODO: remove pellet from field
-				//increase score
-				//throw events in the air
+				Pellet pellet = this.getPellet();
+				if (pellet != null) {
+					Board.getInstance().increaseScore(pellet.getValue());
+					objects.remove(pellet);
+					//TODO: throw events in the air
+				}
+				// you should never be here fucker
+				//throw crazy exception
 			} 
 			if (containsPacman() && containsGhost()) {
 				//TODO: end game
@@ -77,5 +82,17 @@ public class Field {
 			}
 		}
 		return false;
+	}
+	
+	/** Returns the first found Pellet from this Field, otherwise null.
+	 * @return Pellet or null
+	 */
+	private Pellet getPellet() {
+		for (GridObject object : objects) {
+			if (object instanceof Pellet) {
+				return (Pellet)object;
+			}
+		}
+		return null;
 	}
 }

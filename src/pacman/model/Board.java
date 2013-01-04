@@ -44,7 +44,7 @@ public class Board {
 		score += value;
 	}
 
-	public Board getInstance() {
+	public static Board getInstance() {
 		if (instance == null) {
 			instance = new Board();
 		}
