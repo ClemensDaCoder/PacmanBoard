@@ -1,5 +1,4 @@
 package pacman.model;
-
 import java.util.EventListener;
 import java.util.HashMap;
 
@@ -11,7 +10,7 @@ public class Board {
 	private static Board instance = null;
 
 	private HashMap<Position, Field> gameArea;
-
+	
 	private int score;
 
 	private Board() {
@@ -60,8 +59,8 @@ public class Board {
 	public class BonusObjectEventListener implements EventListener {
 		public BonusObjectEventListener() {
 		}
-
-		public void handleEvent(BonusObject o) {
+		
+		public void handleEvent(BonusObject o){
 			increaseScore(o.getValue());
 		}
 	};
