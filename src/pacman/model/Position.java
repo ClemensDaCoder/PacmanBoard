@@ -15,16 +15,12 @@ public class Position {
 		switch(direction) {
 		case UP:
 			return Position.nextUp(this);
-//			break;
 		case DOWN:
 			return Position.nextDown(this);
-//			break;
 		case LEFT:
 			return Position.nextLeft(this);
-//			break;
 		case RIGHT:
 			return Position.nextRight(this);
-//			break;
 		default:
 			return this;
 		}	
