@@ -1,5 +1,9 @@
 package pacman.model.bonus;
 
+/**
+ * @author mwe
+ *
+ */
 public class Pellet extends BonusObject {
 	
 	public Pellet() {

@@ -18,6 +18,12 @@ public class Board {
 		init();
 	}
 
+	/** Moves a movingObject from its current Position to the next one.
+	 *  Objects are only moved from one {@link Field} to another.
+	 *  Objects are not moved if {@link Field} is occupied by {@link Wall}.
+	 * @param movingObject
+	 * @param direction
+	 */
 	public void moveObject(MovingObject movingObject, Direction direction) {
 
 		Position current = movingObject.getCurrentPosition();
@@ -36,14 +42,23 @@ public class Board {
 		}
 	}
 
+	/**
+	 * @return the current score
+	 */
 	public int getScore() {
 		return score;
 	}
 
+	/** Increases the current score by value.
+	 * @param value
+	 */
 	public void increaseScore(int value) {
 		score += value;
 	}
 
+	/**
+	 * @return instance of {@link Board}
+	 */
 	public static Board getInstance() {
 		if (instance == null) {
 			instance = new Board();
