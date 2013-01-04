@@ -1,29 +1,33 @@
 package pacman.model;
-import java.util.List;
 
+import java.util.List;
 
 public class Field {
 
-  public List<GridObject> objects;
-  
-  public void computeState() {
-	  
-  }
-  
-  public void addObject(GridObject object) {
-	  objects.add(object);
-  }
-  
-  public List<GridObject> getObjectsOnField() {
-	  return objects;
-  }
-  
-  public boolean isWall() {
-	  for (GridObject object : objects) {
-		  if (object instanceof Wall) {
-			  return true;
-		  }
-	  }
-	  return false;
-  }
+	public List<GridObject> objects;
+
+	public void computeState() {
+
+	}
+
+	public void addObject(GridObject object) {
+		objects.add(object);
+	}
+
+	public List<GridObject> getObjectsOnField() {
+		return objects;
+	}
+
+	public boolean removeObject(GridObject object) {
+		return objects.remove(object);
+	}
+
+	public boolean isWall() {
+		for (GridObject object : objects) {
+			if (object instanceof Wall) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
