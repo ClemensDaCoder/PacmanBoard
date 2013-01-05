@@ -2,15 +2,20 @@ package pacman.model;
 import java.util.EventListener;
 import java.util.HashMap;
 
+import javax.swing.event.EventListenerList;
+
+import pacman.event.HasMovedListener;
+import pacman.event.HasmovedEvent;
 import pacman.model.bonus.BonusObject;
 import pacman.model.move.MovingObject;
+
 
 public class Board {
 
 	private static Board instance = null;
 
 	private HashMap<Position, Field> gameArea;
-	
+	private EventListenerList listeners  = new EventListenerList();
 	private int score;
 
 	private Board() {
@@ -79,5 +84,24 @@ public class Board {
 			increaseScore(o.getValue());
 		}
 	};
+	
+	public void addListener(HasMovedListener listener){
+		listeners.add(HasMovedListener.class, listener);
+		
+	}
+	public void removeListener(HasMovedListener listener){
+		listeners.remove(HasMovedListener.class, listener);
+		
+		
+	}
+	protected void notifyAdvertisement(HasmovedEvent event){
+		for(HasMovedListener l : listeners.getListeners(HasMovedListener.class))
+		{
+			l.hasmoved(event);
+		}
+		
+		
+	}
+	
 
 }

@@ -1,9 +1,11 @@
 package pacman.event;
 
+import java.util.EventListener;
+
 import pacman.event.HasmovedEvent;
 
 
-public interface HasMovedListener {
+public interface HasMovedListener extends EventListener{
 	
 	void hasmoved(HasmovedEvent e);
 	
