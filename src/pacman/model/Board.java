@@ -32,11 +32,11 @@ public class Board {
 	 * @param direction
 	 */
 	public void moveObject(MovingObject movingObject, Direction direction) {
-
+		
 		Position current = movingObject.getCurrentPosition();
 		Position next = current.next(direction);
-		
-		Field currentField = gameArea.get(new Position('h',13));
+
+		Field currentField = gameArea.get(current);
 		Field nextField = gameArea.get(next);
 
 		if (!nextField.isWall()) {
