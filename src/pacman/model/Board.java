@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.swing.event.EventListenerList;
 
 import pacman.event.BoardListener;
+import pacman.event.FieldListener;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
 import pacman.model.bonus.BonusObject;
@@ -129,6 +130,22 @@ public class Board {
 		}
 		
 		
-	}	
+	}
+	public void addFieldListeners(FieldListener listener )
+	{
+		for(Field f : gameArea.values())
+		{
+			f.addListener(listener);
+		}
+	}
+	
+	public void removeFieldListener(FieldListener listener)
+	{
+		for(Field f : gameArea.values())
+		{
+			f.removeListener(listener);
+		}
+	
+	}
 
 }

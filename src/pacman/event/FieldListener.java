@@ -1,5 +1,8 @@
 package pacman.event;
 
-public interface FieldListener {
+import java.util.EventListener;
+
+public interface FieldListener extends EventListener{
+	
 
 }
