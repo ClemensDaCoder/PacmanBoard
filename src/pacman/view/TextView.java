@@ -4,8 +4,10 @@ import java.util.HashMap;
 
 import pacman.model.Field;
 import pacman.model.Position;
-import pacman.event.HasMovedListener;
+import pacman.model.move.MovingObject;
+import pacman.event.BoardListener;
 import pacman.event.HasmovedEvent;
+import pacman.event.MoveNotPossibleEvent;
 
 
 public class TextView implements PacmanView{
@@ -44,5 +46,11 @@ public class TextView implements PacmanView{
 	public void hasmoved(HasmovedEvent e) {
 		System.out.println(e.getMov().toString() + " has moved from" + e.getOldPos().toString() + " to " + e.getNewPos().toString());
 		//e.getOldPos().toString();		
+	}
+
+	@Override
+	public void moveNotpossible(MoveNotPossibleEvent e) {
+		System.out.println(e.getMov().toString() + " trifft auf Begrenzung – Kein Ereignis");
+		
 	}
 }

@@ -2,11 +2,12 @@ package pacman.view;
 
 import java.util.HashMap;
 
-import pacman.event.HasMovedListener;
+import pacman.event.BoardListener;
 import pacman.model.Field;
 import pacman.model.Position;
+import pacman.model.move.MovingObject;
 
-public interface PacmanView extends HasMovedListener{
+public interface PacmanView extends BoardListener{
 	/**
 	 * Prints the initial state of the gameboard
 	 * @param gameArea
@@ -18,4 +19,5 @@ public interface PacmanView extends HasMovedListener{
 	 * @param gameArea
 	 */
 	public void updateBoard();
+	
 }

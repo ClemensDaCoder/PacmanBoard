@@ -4,8 +4,9 @@ import java.util.HashMap;
 
 import javax.swing.event.EventListenerList;
 
-import pacman.event.HasMovedListener;
+import pacman.event.BoardListener;
 import pacman.event.HasmovedEvent;
+import pacman.event.MoveNotPossibleEvent;
 import pacman.model.bonus.BonusObject;
 import pacman.model.bonus.Pellet;
 import pacman.model.move.MovingObject;
@@ -45,10 +46,11 @@ public class Board {
 			nextField.addObject(movingObject);
 			currentField.removeObject(movingObject);
 			notifyListener(new HasmovedEvent(current, next, movingObject));
+
 		}
-			// TODO: object moved from current to next field .. event!
 		 else {
-			// TODO: object cannot move .. event!
+			 
+			 notifyListener(new MoveNotPossibleEvent(movingObject));
 		}
 	}
 
@@ -99,21 +101,31 @@ public class Board {
 		}
 	};
 	
-	public void addListener(HasMovedListener listener){
-		listeners.add(HasMovedListener.class, listener);
+	public void addListener(BoardListener listener){
+		listeners.add(BoardListener.class, listener);
 		
 	}
-	public void removeListener(HasMovedListener listener){
-		listeners.remove(HasMovedListener.class, listener);
+	public void removeListener(BoardListener listener){
+		listeners.remove(BoardListener.class, listener);
 		
 		
 	}
 	protected void notifyListener(HasmovedEvent event){
 		System.out.println("Notify");
-		for(HasMovedListener l : listeners.getListeners(HasMovedListener.class))
+		for(BoardListener l : listeners.getListeners(BoardListener.class))
 		{
-			System.out.println("Listerner");
+			//System.out.println("Listerner");
 			l.hasmoved(event);
+		}
+		
+		
+	}
+	protected void notifyListener(MoveNotPossibleEvent event){
+		System.out.println("Notify");
+		for(BoardListener l : listeners.getListeners(BoardListener.class))
+		{
+			//System.out.println("Listerner");
+			l.moveNotpossible(event);
 		}
 		
 		
