@@ -7,6 +7,7 @@ import javax.swing.event.EventListenerList;
 import pacman.event.HasMovedListener;
 import pacman.event.HasmovedEvent;
 import pacman.model.bonus.BonusObject;
+import pacman.model.bonus.Pellet;
 import pacman.model.move.MovingObject;
 import pacman.model.move.PacMan;
 
@@ -34,8 +35,8 @@ public class Board {
 
 		Position current = movingObject.getCurrentPosition();
 		Position next = current.next(direction);
-
-		Field currentField = gameArea.get(current);
+		
+		Field currentField = gameArea.get(new Position('h',13));
 		Field nextField = gameArea.get(next);
 
 		if (!nextField.isWall()) {
@@ -43,8 +44,9 @@ public class Board {
 			nextField.addObject(movingObject);
 			currentField.removeObject(movingObject);
 			notifyListener(new HasmovedEvent(current, next, movingObject));
+		}
 			// TODO: object moved from current to next field .. event!
-		} else {
+		 else {
 			// TODO: object cannot move .. event!
 		}
 	}
@@ -75,14 +77,18 @@ public class Board {
 
 	private void init() {
 		gameArea = new HashMap<Position, Field>();
+		
 		for(int i = 1; i < 27 ;i++)
 		{
 			for ( char c = 'a'; c <= 'z' ; c ++ )
 			{
-				gameArea.put(new Position(c,i), new Field());
+				Field f = new Field();
+				f.addObject(new Pellet());
+				gameArea.put(new Position(c,i), f);
 			}
 		}
-		PacMan pac = new PacMan("Pacman", new Position('s',13));
+		gameArea.put(new Position('h',13), new Field("Hallo"));
+		PacMan pac = new PacMan("Pacman", new Position('h',13));
 		moveObject(pac,Direction.RIGHT);
 		// TODO: initialize gameArea
 	}
