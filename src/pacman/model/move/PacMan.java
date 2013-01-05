@@ -4,7 +4,7 @@ import pacman.model.Position;
 
 public class PacMan extends MovingObject {
 	
-	public PacMan(Position position) {
-		super(position);
+	public PacMan(String description, Position position) {
+		super(description, position);
 	}
 }

@@ -4,7 +4,7 @@ import pacman.model.Position;
 
 public class Ghost extends MovingObject {
 	
-	public Ghost(Position position) {
-		super(position);
+	public Ghost(String description, Position position) {
+		super(description, position);
 	}
 }
