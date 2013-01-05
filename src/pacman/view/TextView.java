@@ -8,7 +8,7 @@ import pacman.event.HasMovedListener;
 import pacman.event.HasmovedEvent;
 
 
-public class TextView implements PacmanView , HasMovedListener{
+public class TextView implements PacmanView{
 	
 	@Override
 	public void printBoard(HashMap<Position, Field> gameArea){

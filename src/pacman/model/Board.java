@@ -18,7 +18,7 @@ public class Board {
 	private EventListenerList listeners  = new EventListenerList();
 	private int score;
 
-	private Board() {
+	public Board() {
 		score = 0;
 		init();
 	}
@@ -41,6 +41,7 @@ public class Board {
 			movingObject.setCurrentPosition(next);
 			nextField.addObject(movingObject);
 			currentField.removeObject(movingObject);
+			notifyListener(new HasmovedEvent(current, next, movingObject));
 			// TODO: object moved from current to next field .. event!
 		} else {
 			// TODO: object cannot move .. event!
@@ -94,7 +95,7 @@ public class Board {
 		
 		
 	}
-	protected void notifyAdvertisement(HasmovedEvent event){
+	protected void notifyListener(HasmovedEvent event){
 		for(HasMovedListener l : listeners.getListeners(HasMovedListener.class))
 		{
 			l.hasmoved(event);
