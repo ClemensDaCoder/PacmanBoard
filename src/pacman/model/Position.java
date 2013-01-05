@@ -185,7 +185,7 @@ public enum Position {
 	// }
 
 	public static boolean isValidPosition(Position pos) {
-		return Character.isAlphabetic(pos.x) && pos.y <= 100;
+		return Character.isAlphabetic(pos.x) && pos.y <= 35;
 	}
 
 	public String toString() {
