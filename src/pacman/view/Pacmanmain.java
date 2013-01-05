@@ -2,7 +2,7 @@ package pacman.view;
 
 import pacman.model.Board;
 
-public class Pacman {
+public class Pacmanmain {
 
 	
 	/** The user interface. */
@@ -21,7 +21,7 @@ public class Pacman {
 	public static void main(String[] args) {
 		
 		System.out.println("Das spiel startet");
-		new Pacman().startgame();
+		new Pacmanmain().startgame();
 		
 		
 		

@@ -8,6 +8,7 @@ import pacman.event.HasMovedListener;
 import pacman.event.HasmovedEvent;
 import pacman.model.bonus.BonusObject;
 import pacman.model.move.MovingObject;
+import pacman.model.move.PacMan;
 
 
 public class Board {
@@ -73,6 +74,16 @@ public class Board {
 	}
 
 	private void init() {
+		gameArea = new HashMap<Position, Field>();
+		for(int i = 1; i < 27 ;i++)
+		{
+			for ( char c = 'a'; c <= 'z' ; c ++ )
+			{
+				gameArea.put(new Position(c,i), new Field());
+			}
+		}
+		PacMan pac = new PacMan("Pacman", new Position('s',13));
+		moveObject(pac,Direction.RIGHT);
 		// TODO: initialize gameArea
 	}
 
