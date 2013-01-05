@@ -32,11 +32,12 @@ public class Board {
 	 * @param direction
 	 */
 	public void moveObject(MovingObject movingObject, Direction direction) {
-
+		
 		Position current = movingObject.getCurrentPosition();
 		Position next = current.next(direction);
+
 		
-		Field currentField = gameArea.get(movingObject.getCurrentPosition());
+		Field currentField = gameArea.get(current);
 		Field nextField = gameArea.get(next);
 
 		if (!nextField.isWall()) {
@@ -83,7 +84,6 @@ public class Board {
 			f.addObject(new Pellet());
 			gameArea.put(position, f);
 		}
-		
 		PacMan pac = new PacMan("Pacman", Position.A_1);
 		moveObject(pac,Direction.RIGHT);
 		// TODO: initialize gameArea
