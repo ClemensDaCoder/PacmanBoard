@@ -36,7 +36,7 @@ public class Board {
 		Position current = movingObject.getCurrentPosition();
 		Position next = current.next(direction);
 		
-		Field currentField = gameArea.get(new Position('h',13));
+		Field currentField = gameArea.get(movingObject.getCurrentPosition());
 		Field nextField = gameArea.get(next);
 
 		if (!nextField.isWall()) {
@@ -78,17 +78,13 @@ public class Board {
 	private void init() {
 		gameArea = new HashMap<Position, Field>();
 		
-		for(int i = 1; i < 27 ;i++)
-		{
-			for ( char c = 'a'; c <= 'z' ; c ++ )
-			{
-				Field f = new Field();
-				f.addObject(new Pellet());
-				gameArea.put(new Position(c,i), f);
-			}
+		for (Position position : Position.values()) {
+			Field f = new Field();
+			f.addObject(new Pellet());
+			gameArea.put(position, f);
 		}
-		gameArea.put(new Position('h',13), new Field("Hallo"));
-		PacMan pac = new PacMan("Pacman", new Position('h',13));
+		
+		PacMan pac = new PacMan("Pacman", Position.A_1);
 		moveObject(pac,Direction.RIGHT);
 		// TODO: initialize gameArea
 	}

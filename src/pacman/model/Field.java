@@ -10,12 +10,12 @@ import pacman.model.move.PacMan;
 public class Field {
 
 	public List<GridObject> objects;
-	public String test;
+	
 	public Field() {
 		objects = new ArrayList<GridObject>();
 	}
+	
 	public Field(String test){
-		this.test = test;
 		objects = new ArrayList<GridObject>();
 	}
 	

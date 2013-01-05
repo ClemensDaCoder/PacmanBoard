@@ -19,12 +19,11 @@ public class Pacmanmain {
 	}
 	
 	public static void main(String[] args) {
-		
+				
 		System.out.println("Das spiel startet");
 		new Pacmanmain().startgame();
 		
-		
-		
+				
 		//TODO Ausgabe des aktuellen STatus
 		//Todo Ausgabe der Movings
 		// TODO Auto-generated method stub
