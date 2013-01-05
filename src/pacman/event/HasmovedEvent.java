@@ -28,6 +28,9 @@ public class HasmovedEvent extends java.util.EventObject {
 
 	public HasmovedEvent(Position oldPos, Position newPos, MovingObject mov){
 		super(mov);
+		this.oldPos = oldPos;
+		this.newPos = newPos;
+		this.mov = mov;
 	}
 
 }

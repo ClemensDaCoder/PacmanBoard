@@ -33,6 +33,9 @@ public class Pacmanmain {
 		board = new Board();
 		userInterface = new TextView();
 		board.addListener(userInterface);
+		board.init();
+		
+
 		
 	}
 
