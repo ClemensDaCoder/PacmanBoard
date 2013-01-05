@@ -3,6 +3,12 @@ package pacman.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.event.EventListenerList;
+
+import pacman.event.BoardListener;
+import pacman.event.FieldListener;
+import pacman.event.HasmovedEvent;
+import pacman.event.MoveNotPossibleEvent;
 import pacman.model.bonus.Pellet;
 import pacman.model.move.Ghost;
 import pacman.model.move.PacMan;
@@ -14,6 +20,7 @@ public class Field {
 	public Field() {
 		objects = new ArrayList<GridObject>();
 	}
+	private EventListenerList listeners  = new EventListenerList();
 
 	public void computeState() {
 		//only check field if it is not empty and does not contain a wall
@@ -82,4 +89,17 @@ public class Field {
 		}
 		return false;
 	}
+	
+	public void addListener(FieldListener listener){
+		listeners.add(BoardListener.class, listener);
+		
+	}
+	
+	public void removeListener(FieldListener listener){
+		listeners.remove(BoardListener.class, listener);
+		
+		
+	}
+	
+
 }
