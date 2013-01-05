@@ -6,7 +6,7 @@ import java.util.List;
 import pacman.model.bonus.Pellet;
 import pacman.model.move.Ghost;
 import pacman.model.move.PacMan;
-
+import pacman.model.Board;
 public class Field {
 
 	public List<GridObject> objects;
@@ -19,9 +19,12 @@ public class Field {
 		//only check field if it is not empty and does not contain a wall
 		if (!objects.isEmpty() && !isWall()) {
 			if (containsPacman() && containsPellet()) {
+				
 				//TODO: remove pellet from field
+				
 				//increase score
 				//throw events in the air
+				
 				
 			} 
 			if (containsPacman() && containsGhost()) {
