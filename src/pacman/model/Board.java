@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.swing.event.EventListenerList;
 
 import pacman.event.BoardListener;
+import pacman.event.FieldListener;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
 import pacman.model.bonus.BonusObject;
@@ -81,14 +82,54 @@ public class Board {
 	public void init() {
 		gameArea = new HashMap<Position, Field>();
 		
-		for (Position position : Position.values()) {
+		/*for (Position position : Position.values()) {
 			Field f = new Field();
 			f.addObject(new Pellet());
 			gameArea.put(position, f);
 		}
 		PacMan pac = new PacMan("Pacman", Position.F_3);
-		moveObject(pac,Direction.RIGHT);
+		moveObject(pac,Direction.RIGHT);*/
+		
 		// TODO: initialize gameArea
+		for (Position position : Position.values()) {
+			putRectangle(position, 'A', 'Z', 1, 35);
+			putRectangle(position, 'C', 'X', 3, 33);
+			putRectangle(position, 'E', 'U', 3, 33);
+			putRectangle(position, 'G', 'S', 3, 33);
+			putRectangle(position, 'I', 'Q', 3, 33);
+			putRectangle(position, 'K', 'O', 3, 33);
+		}
+		
+		/*for(Position position : Position.values()){
+			if((position.getX() == 17) && (position.getY() != 'A') && (position.getX() != 'Z')){
+				clearField(position);
+			}
+			else if((position.getY() == 'M') && (position.getX() != '1') && (position.getY() != '35')){
+				clearField(position);
+			}
+		}*/
+	}
+	
+	private void putRectangle(Position pos, char X1, char X2, int Y1, int Y2){
+		Field f;
+		if((pos.getX() == X1) || (pos.getX() == X2)){
+			if ((pos.getX() != 17) || (pos.getY() != 'A')
+					|| (pos.getX() != 'Z')) {
+				f = new Field();
+				f.addObject(new Wall());
+				gameArea.put(pos, f);
+			}
+		}
+		if(!gameArea.containsKey(pos)){
+			if((pos.getY() == Y1) || (pos.getY() == Y2)){
+				if ((pos.getY() != 'M') || (pos.getX() == 1)
+						|| (pos.getX() == 35)) {
+					f = new Field();
+					f.addObject(new Wall());
+					gameArea.put(pos, f);
+				}
+			}
+		}
 	}
 
 	//??
@@ -129,6 +170,22 @@ public class Board {
 		}
 		
 		
-	}	
+	}
+	public void addFieldListeners(FieldListener listener )
+	{
+		for(Field f : gameArea.values())
+		{
+			f.addListener(listener);
+		}
+	}
+	
+	public void removeFieldListener(FieldListener listener)
+	{
+		for(Field f : gameArea.values())
+		{
+			f.removeListener(listener);
+		}
+	
+	}
 
 }
