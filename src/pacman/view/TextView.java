@@ -4,11 +4,7 @@ import java.util.HashMap;
 
 import pacman.model.Field;
 import pacman.model.Position;
-import pacman.model.bonus.BonusObject;
-import pacman.model.bonus.Pellet;
-import pacman.model.move.Ghost;
-import pacman.model.move.PacMan;
-import pacman.model.Wall;
+
 
 public class TextView implements PacmanView{
 	
