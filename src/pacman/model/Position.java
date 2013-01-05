@@ -176,13 +176,13 @@ public enum Position {
 		return getPosition(pos.x, pos.y - 1);
 	}
 
-	// public int getY() {
-	// return y;
-	// }
-	//
-	// public Character getX() {
-	// return x;
-	// }
+	public int getY() {
+		return y;
+	}
+
+	public Character getX() {
+		return x;
+	}
 
 	public static boolean isValidPosition(Position pos) {
 		return Character.isAlphabetic(pos.x) && pos.y <= 100;
