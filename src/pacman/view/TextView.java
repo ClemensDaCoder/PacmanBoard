@@ -42,6 +42,7 @@ public class TextView implements PacmanView , HasMovedListener{
 
 	@Override
 	public void hasmoved(HasmovedEvent e) {
+		System.out.println(e.getMov().toString() + " has moved from" + e.getOldPos().toString() + " to " + e.getNewPos().toString());
 		//e.getOldPos().toString();		
 	}
 }
