@@ -22,7 +22,7 @@ public class Board {
 
 	public Board() {
 		score = 0;
-		init();
+		//init();
 	}
 
 	/** Moves a movingObject from its current Position to the next one.
@@ -76,7 +76,7 @@ public class Board {
 		return instance;
 	}
 
-	private void init() {
+	public void init() {
 		gameArea = new HashMap<Position, Field>();
 		
 		for (Position position : Position.values()) {
@@ -84,7 +84,7 @@ public class Board {
 			f.addObject(new Pellet());
 			gameArea.put(position, f);
 		}
-		PacMan pac = new PacMan("Pacman", Position.A_1);
+		PacMan pac = new PacMan("Pacman", Position.F_3);
 		moveObject(pac,Direction.RIGHT);
 		// TODO: initialize gameArea
 	}
@@ -109,8 +109,10 @@ public class Board {
 		
 	}
 	protected void notifyListener(HasmovedEvent event){
+		System.out.println("Notify");
 		for(HasMovedListener l : listeners.getListeners(HasMovedListener.class))
 		{
+			System.out.println("Listerner");
 			l.hasmoved(event);
 		}
 		
