@@ -87,7 +87,6 @@ public class Board {
 				gameArea.put(new Position(c,i), f);
 			}
 		}
-		gameArea.put(new Position('h',13), new Field("Hallo"));
 		PacMan pac = new PacMan("Pacman", new Position('h',13));
 		moveObject(pac,Direction.RIGHT);
 		// TODO: initialize gameArea

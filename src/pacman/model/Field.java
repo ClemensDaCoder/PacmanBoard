@@ -14,11 +14,7 @@ public class Field {
 	public Field() {
 		objects = new ArrayList<GridObject>();
 	}
-	public Field(String test){
-		this.test = test;
-		objects = new ArrayList<GridObject>();
-	}
-	
+		
 	public void computeState() {
 		//only check field if it is not empty and does not contain a wall
 		if (!objects.isEmpty() && !isWall()) {
