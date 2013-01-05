@@ -4,9 +4,11 @@ import java.util.HashMap;
 
 import pacman.model.Field;
 import pacman.model.Position;
+import pacman.event.HasMovedListener;
+import pacman.event.HasmovedEvent;
 
 
-public class TextView implements PacmanView{
+public class TextView implements PacmanView , HasMovedListener{
 	
 	@Override
 	public void printBoard(HashMap<Position, Field> gameArea){
@@ -36,5 +38,10 @@ public class TextView implements PacmanView{
 		
 		//level completed: next level
 		
+	}
+
+	@Override
+	public void hasmoved(HasmovedEvent e) {
+		//e.getOldPos().toString();		
 	}
 }
