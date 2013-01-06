@@ -7,7 +7,7 @@ public interface BoardListener extends EventListener {
 	public void hasmoved(HasMovedEvent e);
 
 	/**
-	 * Prints, that the move is not possible
+	 * Prints that the move is not possible
 	 * 
 	 * @param mov
 	 */
