@@ -30,18 +30,18 @@ public class TextView implements PacmanView{
 
 	@Override
 	public void scoreChanged(ScoreChangedEvent event) {
-		System.out.print(" – neue Punktezahl " + event.getNewscore());
+		System.out.println(" – neue Punktezahl " + event.getNewscore());
 		
 	}
 
 	@Override
 	public void gamehasended(GameEndsEvent event) {
-		System.out.print("Geist trifft auf Pac-Man – Spielende");		
+		System.out.println("Geist trifft auf Pac-Man – Spielende");		
 	}
 
 	@Override
 	public void fruitwasplaced(FruitPlacedEvent event) {
-		System.out.print("Feld " + event.getPos().toString() + " - Frucht ("+ event.getFruit().toString() + ")");
+		System.out.println("Feld " + event.getPos().toString() + " - Frucht ("+ event.getFruit().toString() + ")");
 	}
 
 	@Override
