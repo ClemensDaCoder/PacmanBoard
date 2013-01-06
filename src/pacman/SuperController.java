@@ -29,6 +29,14 @@ public class SuperController {
 		
 		//start game
 		board.startLevel();
+		
+		while(true) {
+			board.moveObjects();
+		}
+	}
+	
+	public static void main (String [] args) {
+		SuperController controller = new SuperController();
 	}
 
 }

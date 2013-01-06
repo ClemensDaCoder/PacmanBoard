@@ -40,6 +40,7 @@ public class Board {
 		listeners = new EventListenerList();
 		gameArea = new HashMap<Position, Field>();
 		movingObjects = new ArrayList<MovingObject>();
+		initGameArea();
 		//	startLevel();
 	}
 	
@@ -143,7 +144,7 @@ public class Board {
 	 * 
 	 */
 	public void startLevel() {
-		initGameArea();
+//		initGameArea();
 		initFruit();
 		initPellets();
 	}
