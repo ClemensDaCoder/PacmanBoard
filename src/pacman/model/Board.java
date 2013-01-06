@@ -99,7 +99,6 @@ public class Board {
 	}
 
 	private void initGameArea() {
-		// TODO: initialize gameArea
 		Field f;
 		for (Position position : Position.values()) {
 			f = new Field();
@@ -166,8 +165,14 @@ public class Board {
 		if (remainingPellets > 0)
 			remainingPellets--;
 		if (remainingPellets == 0) {
-			//TODO throw nextLevelEvent
+			notifyListener(new NextLevelEvent(this));
+			//start next level
+			nextLevel();
 		}
+	}
+	
+	private void nextLevel() {
+		init();
 	}
 
 	public void addListener(BoardListener listener) {
