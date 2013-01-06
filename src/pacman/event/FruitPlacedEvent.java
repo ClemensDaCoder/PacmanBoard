@@ -17,11 +17,12 @@ public class FruitPlacedEvent extends java.util.EventObject {
 		this.fruit = source;
 		this.pos = pos;
 	}
-	
-	public Fruit getFruit(){
+
+	public Fruit getFruit() {
 		return fruit;
 	}
-	public Position getPos(){
+
+	public Position getPos() {
 		return pos;
 	}
 

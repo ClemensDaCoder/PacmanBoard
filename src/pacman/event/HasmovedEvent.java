@@ -3,13 +3,12 @@ package pacman.event;
 import pacman.model.Position;
 import pacman.model.move.MovingObject;
 
-
 public class HasmovedEvent extends java.util.EventObject {
 
 	Position oldPos;
 	Position newPos;
 	MovingObject mov;
-	
+
 	public Position getOldPos() {
 		return oldPos;
 	}
@@ -22,11 +21,9 @@ public class HasmovedEvent extends java.util.EventObject {
 		return mov;
 	}
 
-	
-	
 	private static final long serialVersionUID = 1L;
 
-	public HasmovedEvent(Position oldPos, Position newPos, MovingObject mov){
+	public HasmovedEvent(Position oldPos, Position newPos, MovingObject mov) {
 		super(mov);
 		this.oldPos = oldPos;
 		this.newPos = newPos;
