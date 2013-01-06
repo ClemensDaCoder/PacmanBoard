@@ -91,13 +91,22 @@ public class Board {
 		moveObject(pac,Direction.RIGHT);*/
 		
 		// TODO: initialize gameArea
+		
 		for (Position position : Position.values()) {
-			putRectangle(position, 'A', 'Z', 1, 35);
-			putRectangle(position, 'C', 'X', 3, 33);
-			putRectangle(position, 'E', 'U', 3, 33);
-			putRectangle(position, 'G', 'S', 3, 33);
-			putRectangle(position, 'I', 'Q', 3, 33);
-			putRectangle(position, 'K', 'O', 3, 33);
+			/*f = new Field();
+			if(((position.getX() == 'A') || (position.getX() == 'Z')) && (position.getX() != 'M')){	
+				f.addObject(new Wall());
+			}else if(((position.getY() == 1)||(position.getY() == 35)) && (position.getY() != 17)){
+				f.addObject(new Wall());
+			}
+			gameArea.put(position, f);*/
+			
+			putWall(position, 'A', 'Z', 1, 35);
+			putWall(position, 'C', 'X', 3, 33);
+			putWall(position, 'E', 'U', 3, 33);
+			putWall(position, 'G', 'S', 3, 33);
+			putWall(position, 'I', 'Q', 3, 33);
+			putWall(position, 'K', 'O', 3, 33);
 		}
 		
 		/*for(Position position : Position.values()){
@@ -110,7 +119,17 @@ public class Board {
 		}*/
 	}
 	
-	private void putRectangle(Position pos, char X1, char X2, int Y1, int Y2){
+	private void putWall(Position position, char X1, char X2, int Y1, int Y2){
+		Field f = new Field();
+		if(((position.getX() == X1) || (position.getX() == X2)) && (position.getX() != 'M')){	
+			f.addObject(new Wall());
+		}else if(((position.getY() == Y1)||(position.getY() == Y2)) && (position.getY() != 17)){
+			f.addObject(new Wall());
+		}
+		gameArea.put(position, f);
+	}
+	
+	/*private void putRectangle(Position pos, char X1, char X2, int Y1, int Y2){
 		Field f;
 		if((pos.getX() == X1) || (pos.getX() == X2)){
 			if ((pos.getX() != 17) || (pos.getY() != 'A')
@@ -120,6 +139,7 @@ public class Board {
 				gameArea.put(pos, f);
 			}
 		}
+		
 		if(!gameArea.containsKey(pos)){
 			if((pos.getY() == Y1) || (pos.getY() == Y2)){
 				if ((pos.getY() != 'M') || (pos.getX() == 1)
@@ -130,7 +150,7 @@ public class Board {
 				}
 			}
 		}
-	}
+	}*/
 
 	//??
 	public class BonusObjectEventListener implements EventListener {
