@@ -10,9 +10,7 @@ import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
 import pacman.event.ScoreChangedEvent;
 import pacman.model.bonus.BonusObject;
-import pacman.model.bonus.Pellet;
 import pacman.model.move.MovingObject;
-import pacman.model.move.PacMan;
 
 
 public class Board {

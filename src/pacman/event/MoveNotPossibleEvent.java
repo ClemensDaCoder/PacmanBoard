@@ -1,6 +1,5 @@
 package pacman.event;
 
-import pacman.model.Position;
 import pacman.model.move.MovingObject;
 
 /**

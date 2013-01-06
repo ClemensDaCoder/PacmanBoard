@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.event.EventListenerList;
 
 import pacman.event.FieldListener;
+import pacman.event.GameEndsEvent;
 import pacman.event.PelletEatenEvent;
 import pacman.model.bonus.Pellet;
 import pacman.model.move.Ghost;
@@ -32,6 +33,7 @@ public class Field {
 				objects.remove(pellet);
 			} 
 			if (containsPacman() && containsGhost()) {
+				notifiyListener(new GameEndsEvent(this));
 				//TODO: end game
 				//throw event deswegen
 			}
@@ -114,6 +116,14 @@ public class Field {
 			l.pelletEaten(event);
 		}
 	}
+	public void notifiyListener(GameEndsEvent event){
+		for(FieldListener l : listeners.getListeners(FieldListener.class))
+		{
+			//System.out.println("Listerner");
+			l.gamehasended(event);
+		}
+	}
+
 	
 
 }

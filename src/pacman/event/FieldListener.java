@@ -5,6 +5,6 @@ import java.util.EventListener;
 public interface FieldListener extends EventListener{
 	
 	void pelletEaten(PelletEatenEvent event);
-
+	void gamehasended(GameEndsEvent event);
 }
 
