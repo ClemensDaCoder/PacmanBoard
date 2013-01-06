@@ -12,6 +12,7 @@ import pacman.event.FieldListener;
 import pacman.event.FruitPlacedEvent;
 import pacman.event.HasMovedEvent;
 import pacman.event.MoveNotPossibleEvent;
+import pacman.event.MovingObjectPlacedEvent;
 import pacman.event.NextLevelEvent;
 import pacman.event.ScoreChangedEvent;
 import pacman.model.bonus.Cherry;
@@ -120,8 +121,8 @@ public class Board {
 		}
 		int ghostnumber = movingObjects.size();
 		Ghost ghost = new Ghost(position,"Ghost" + ghostnumber, movingStrategy);
-		movingObjects.add(ghost);	
-		//TODO: throw event that a ghost has been added or so
+		movingObjects.add(ghost);
+		notifyListener(new MovingObjectPlacedEvent(ghost,position));
 	}
 	
 	/** Adds a {@link PacMan} with a given {@link MovingStrategy}<br>
@@ -137,7 +138,7 @@ public class Board {
 		}
 		PacMan pacman = new PacMan(Position.M_24, "PacMan", movingStrategy);
 		movingObjects.add(pacman);
-		//TODO: throw event that pacman has been added or so
+		notifyListener(new MovingObjectPlacedEvent(pacman,Position.M_24));
 		return true;
 	}
 
@@ -267,6 +268,11 @@ public class Board {
 	protected void notifyListener(ScoreChangedEvent event) {
 		for (BoardListener l : listeners.getListeners(BoardListener.class)) {
 			l.scoreChanged(event);
+		}
+	}
+	protected void notifyListener(MovingObjectPlacedEvent event) {
+		for (BoardListener l : listeners.getListeners(BoardListener.class)) {
+			l.movingobjectwasplaced(event);
 		}
 	}
 	

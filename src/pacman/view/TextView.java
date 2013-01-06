@@ -5,6 +5,7 @@ import pacman.event.FruitPlacedEvent;
 import pacman.event.GameOverEvent;
 import pacman.event.HasMovedEvent;
 import pacman.event.MoveNotPossibleEvent;
+import pacman.event.MovingObjectPlacedEvent;
 import pacman.event.NextLevelEvent;
 import pacman.event.ScoreChangedEvent;
 
@@ -48,6 +49,12 @@ public class TextView implements PacmanView {
 	@Override
 	public void nextLevel(NextLevelEvent event) {
 		System.out.println("Level finished!");
+		
+	}
+
+	@Override
+	public void movingobjectwasplaced(MovingObjectPlacedEvent event) {
+		System.out.println("Field: "+ event.getPos().toString() + " " + event.getMov().getName());
 		
 	}
 }

@@ -18,5 +18,7 @@ public interface BoardListener extends EventListener {
 	public void fruitwasplaced(FruitPlacedEvent event);
 
 	public void nextLevel(NextLevelEvent event);
+	
+	public void movingobjectwasplaced(MovingObjectPlacedEvent event);
 
 }

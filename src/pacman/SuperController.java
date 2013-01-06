@@ -21,7 +21,6 @@ public class SuperController {
 		
 		
 		
-		//TODO: add pacman & ghosts to board
 		board.addPacman(new RandomMovingStrategy());
 		board.addGhost(new RandomMovingStrategy());
 		board.addGhost(new RandomMovingStrategy());
