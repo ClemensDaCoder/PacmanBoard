@@ -137,7 +137,7 @@ public class Board {
 		}
 		PacMan pacman = new PacMan(Position.M_24, "PacMan", movingStrategy);
 		movingObjects.add(pacman);
-		//throw event that pacman has been added or so
+		//TODO: throw event that pacman has been added or so
 		return true;
 	}
 
