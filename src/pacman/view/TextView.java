@@ -3,6 +3,7 @@ package pacman.view;
 import java.util.HashMap;
 
 import pacman.event.BonusObjectEatenEvent;
+import pacman.event.FruitPlacedEvent;
 import pacman.event.GameEndsEvent;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
@@ -69,5 +70,10 @@ public class TextView implements PacmanView{
 	@Override
 	public void gamehasended(GameEndsEvent event) {
 		System.out.print("Geist trifft auf Pac-Man – Spielende");		
+	}
+
+	@Override
+	public void fruitwasplaced(FruitPlacedEvent event) {
+		System.out.print("Feld " + event.getPos().toString() + " - Frucht ("+ event.getFruit().toString() + ")");
 	}
 }

@@ -13,6 +13,7 @@ import pacman.event.ScoreChangedEvent;
 import pacman.model.bonus.Cherry;
 import pacman.model.bonus.Fruit;
 import pacman.model.bonus.Peach;
+import pacman.model.bonus.Pellet;
 import pacman.model.move.MovingObject;
 
 public class Board {
@@ -22,10 +23,11 @@ public class Board {
 	private HashMap<Position, Field> gameArea;
 	private EventListenerList listeners = new EventListenerList();
 	private int score;
+	private int remainingPellets;
 
 	public Board() {
 		score = 0;
-		// init();
+		init();
 	}
 
 	/**
@@ -90,6 +92,8 @@ public class Board {
 	public void init() {
 		gameArea = new HashMap<Position, Field>();
 		initGameArea();
+		initFruit();
+		initPellets();
 	}
 
 	private void initGameArea() {
@@ -102,7 +106,6 @@ public class Board {
 						|| (position.getY() == 35)) {
 					f.addObject(new Wall());
 				} else if ((position.getY() % 2 == 1) && (Character.getNumericValue(position.getX()) % 2 == 0)) {
-					System.out.println(position.toString());
 					f.addObject(new Wall());
 				}
 				gameArea.put(position, f);
@@ -118,7 +121,7 @@ public class Board {
 			randomPosition = getRandomPosition();
 			field = gameArea.get(randomPosition);
 		}
-		//place fruit in random position
+		// place fruit in random position
 		Fruit fruit = createRandomFruit();
 		field.addObject(fruit);
 		// TODO: throw frucht platziert event
@@ -140,10 +143,26 @@ public class Board {
 		}
 	}
 
-	// TODO: remove this, as it is only for testing purposes
-	public static void main(String[] args) {
-		Board board = Board.getInstance();
-		board.init();
+	private void initPellets() {
+		Field f;
+		remainingPellets = 0;
+		for (Position position : Position.values()) {
+			f = new Field();
+			if (f.isEmpty()) {
+				f.addObject(new Pellet());
+				gameArea.put(position, f);
+				remainingPellets++;
+			}
+		}
+	}
+
+	public int getRemainingPellets() {
+		return remainingPellets;
+	}
+
+	public void decreaseRemainingPellets() {
+		if (remainingPellets > 0)
+			remainingPellets--;
 	}
 
 	public void addListener(BoardListener listener) {
