@@ -24,7 +24,7 @@ public class Pacmanmain {
 		new Pacmanmain().startgame();
 		
 				
-		//TODO Ausgabe des aktuellen STatus
+		//TODO Ausgabe des aktuellen Status
 		//Todo Ausgabe der Movings
 		// TODO Auto-generated method stub
 			
