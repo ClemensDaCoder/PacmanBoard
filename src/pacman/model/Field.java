@@ -18,6 +18,9 @@ public class Field {
 	private EventListenerList listeners  = new EventListenerList();
 
 	
+	/** Creates a new field, which can be occupied by various {@link GridObject}s.
+	 *  
+	 */
 	public Field() {
 		objects = new ArrayList<GridObject>();
 	}
@@ -174,7 +177,4 @@ public class Field {
 			l.gamehasended(event);
 		}
 	}
-
-	
-
 }
