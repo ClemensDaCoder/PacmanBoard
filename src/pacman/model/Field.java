@@ -5,15 +5,11 @@ import java.util.List;
 
 import javax.swing.event.EventListenerList;
 
-import pacman.event.BoardListener;
 import pacman.event.FieldListener;
-import pacman.event.HasmovedEvent;
-import pacman.event.MoveNotPossibleEvent;
 import pacman.event.PelletEatenEvent;
 import pacman.model.bonus.Pellet;
 import pacman.model.move.Ghost;
 import pacman.model.move.PacMan;
-import pacman.model.Board;
 public class Field {
 
 	public List<GridObject> objects;
@@ -28,7 +24,7 @@ public class Field {
 		if (!objects.isEmpty() && !isWall()) {
 			if (containsPacman() && containsPellet()) {
 				
-				notifyListener(new PelletEatenEvent());
+				notifyListener(new PelletEatenEvent(this));
 				//TODO: remove pellet from field
 				
 				//increase score
