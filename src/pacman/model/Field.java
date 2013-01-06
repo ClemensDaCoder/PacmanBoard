@@ -9,6 +9,7 @@ import pacman.event.BoardListener;
 import pacman.event.FieldListener;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
+import pacman.event.PelletEatenEvent;
 import pacman.model.bonus.Pellet;
 import pacman.model.move.Ghost;
 import pacman.model.move.PacMan;
@@ -27,11 +28,11 @@ public class Field {
 		if (!objects.isEmpty() && !isWall()) {
 			if (containsPacman() && containsPellet()) {
 				
+				notifyListener(new PelletEatenEvent());
 				//TODO: remove pellet from field
 				
 				//increase score
-				//throw events in the air
-				
+			
 				
 			} 
 			if (containsPacman() && containsGhost()) {
@@ -91,14 +92,22 @@ public class Field {
 	}
 	
 	public void addListener(FieldListener listener){
-		listeners.add(BoardListener.class, listener);
+		listeners.add(FieldListener.class, listener);
 		
 	}
 	
 	public void removeListener(FieldListener listener){
-		listeners.remove(BoardListener.class, listener);
+		listeners.remove(FieldListener.class, listener);
 		
 		
+	}
+	
+	public void notifyListener(PelletEatenEvent event){
+		for(FieldListener l : listeners.getListeners(FieldListener.class))
+		{
+			//System.out.println("Listerner");
+			l.pelletEaten(event);
+		}
 	}
 	
 

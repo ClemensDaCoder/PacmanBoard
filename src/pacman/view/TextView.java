@@ -8,6 +8,8 @@ import pacman.model.move.MovingObject;
 import pacman.event.BoardListener;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
+import pacman.event.PelletEatenEvent;
+import pacman.event.ScoreChangedEvent;
 
 
 public class TextView implements PacmanView{
@@ -51,6 +53,17 @@ public class TextView implements PacmanView{
 	@Override
 	public void moveNotpossible(MoveNotPossibleEvent e) {
 		System.out.println(e.getMov().toString() + " trifft auf Begrenzung – Kein Ereignis");
+		
+	}
+
+	@Override
+	public void pelletEaten(PelletEatenEvent event) {
+		System.out.println("Pac-Man frisst Punkt ");
+	}
+
+	@Override
+	public void scoreChanged(ScoreChangedEvent event) {
+		System.out.print(" – neue Punktezahl " + event.getNewscore());
 		
 	}
 }

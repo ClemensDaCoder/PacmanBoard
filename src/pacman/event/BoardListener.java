@@ -3,8 +3,6 @@ package pacman.event;
 import java.util.EventListener;
 
 import pacman.event.HasmovedEvent;
-import pacman.model.move.MovingObject;
-
 
 public interface BoardListener extends EventListener{
 	
@@ -15,5 +13,7 @@ public interface BoardListener extends EventListener{
 	 * @param mov
 	 */
 	void moveNotpossible(MoveNotPossibleEvent mov);
+	
+	void scoreChanged(ScoreChangedEvent event);
 	
 }
