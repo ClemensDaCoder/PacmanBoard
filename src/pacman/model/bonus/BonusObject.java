@@ -10,8 +10,7 @@ import pacman.model.GridObject;
 public abstract class BonusObject extends GridObject {
 	
 	protected static int PELLET_VALUE = 10;
-	protected static int CHERRY_VALUE = 150;
-	protected static int PEACH_VALUE = 100;
+	
 	
 	
 	protected int value;
@@ -22,6 +21,11 @@ public abstract class BonusObject extends GridObject {
 	public int getValue() {
 		return value;
 	}
+	
+	/** Provides an entry point for any special action that a bonus object can start.
+	 * 
+	 */
+	public abstract void executeAction();
 	
 	
 }

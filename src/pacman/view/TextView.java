@@ -8,7 +8,7 @@ import pacman.model.move.MovingObject;
 import pacman.event.BoardListener;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
-import pacman.event.PelletEatenEvent;
+import pacman.event.BonusObjectEatenEvent;
 import pacman.event.ScoreChangedEvent;
 
 
@@ -57,7 +57,7 @@ public class TextView implements PacmanView{
 	}
 
 	@Override
-	public void pelletEaten(PelletEatenEvent event) {
+	public void pelletEaten(BonusObjectEatenEvent event) {
 		System.out.println("Pac-Man frisst Punkt ");
 	}
 

@@ -5,8 +5,9 @@ import java.util.List;
 
 import javax.swing.event.EventListenerList;
 
+import pacman.event.BonusObjectEatenEvent;
 import pacman.event.FieldListener;
-import pacman.event.PelletEatenEvent;
+import pacman.model.bonus.BonusObject;
 import pacman.model.bonus.Pellet;
 import pacman.model.move.Ghost;
 import pacman.model.move.PacMan;
@@ -22,14 +23,15 @@ public class Field {
 	public void computeState() {
 		//only check field if it is not empty and does not contain a wall
 		if (!objects.isEmpty() && !isWall()) {
-			if (containsPacman() && containsPellet()) {
-				
-				notifyListener(new PelletEatenEvent(this));
+			if (containsPacman() && containsBonusObject()) {
+				BonusObject bonusObject = getBonusObject();
+				notifyListener(new BonusObjectEatenEvent(bonusObject));
 				//increase score
-				Pellet pellet = getPellet();
-				Board.getInstance().increaseScore(pellet.getValue());
+				Board.getInstance().increaseScore(bonusObject.getValue());
+				//execute special action of bonus object
+				bonusObject.executeAction();
 				//remove pellet from field
-				objects.remove(pellet);
+				objects.remove(bonusObject);
 			} 
 			if (containsPacman() && containsGhost()) {
 				//TODO: end game
@@ -69,9 +71,9 @@ public class Field {
 		return false;
 	}
 	
-	public boolean containsPellet() {
+	public boolean containsBonusObject() {
 		for (GridObject object : objects) {
-			if (object instanceof Pellet) {
+			if (object instanceof BonusObject) {
 				return true;
 			}
 		}
@@ -85,6 +87,15 @@ public class Field {
 			}
 		}
 		return false;
+	}
+	
+	private BonusObject getBonusObject() {
+		for (GridObject object : objects) {
+			if (object instanceof BonusObject) {
+				return (BonusObject) object;
+			}
+		}
+		return null;
 	}
 	
 	private Pellet getPellet() {
@@ -107,7 +118,7 @@ public class Field {
 		
 	}
 	
-	public void notifyListener(PelletEatenEvent event){
+	public void notifyListener(BonusObjectEatenEvent event){
 		for(FieldListener l : listeners.getListeners(FieldListener.class))
 		{
 			//System.out.println("Listerner");

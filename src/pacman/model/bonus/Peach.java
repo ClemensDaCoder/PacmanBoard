@@ -4,10 +4,10 @@ package pacman.model.bonus;
  * @author mwe
  *
  */
-public class Peach extends BonusObject {
+public class Peach extends Fruit {
 	
 	public Peach() {
-		this.value = BonusObject.PEACH_VALUE;
+		this.value = Fruit.PEACH_VALUE;
 	}
 
 }
