@@ -61,6 +61,13 @@ public class Field {
 	public void addObject(GridObject object) {
 		objects.add(object);
 	}
+	
+	/**
+	 * @return true if this field is empty.
+	 */
+	public boolean isEmpty() {
+		return objects.isEmpty();
+	}
 
 	/**
 	 * @return all {@link GridObect}s on the field
