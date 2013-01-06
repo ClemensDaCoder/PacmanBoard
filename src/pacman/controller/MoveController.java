@@ -20,6 +20,4 @@ public abstract class MoveController {
 	  board.moveObject(movingObject, determineMoveDirection());
   }
   
-  
-
 }
