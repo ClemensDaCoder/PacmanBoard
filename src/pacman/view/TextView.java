@@ -7,6 +7,7 @@ import pacman.event.FruitPlacedEvent;
 import pacman.event.GameEndsEvent;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
+import pacman.event.NextLevelEvent;
 import pacman.event.ScoreChangedEvent;
 import pacman.model.Field;
 import pacman.model.Position;
@@ -75,5 +76,11 @@ public class TextView implements PacmanView{
 	@Override
 	public void fruitwasplaced(FruitPlacedEvent event) {
 		System.out.print("Feld " + event.getPos().toString() + " - Frucht ("+ event.getFruit().toString() + ")");
+	}
+
+	@Override
+	public void nextLevel(NextLevelEvent event) {
+		// TODO KATHI _ WRITE SOMETHING
+		
 	}
 }

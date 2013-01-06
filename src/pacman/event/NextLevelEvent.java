@@ -2,16 +2,17 @@ package pacman.event;
 
 import java.util.EventObject;
 
-import pacman.model.Field;
+import pacman.model.Board;
 
 
 
-public class GameEndsEvent extends EventObject{
+public class NextLevelEvent extends EventObject{
 
 	private static final long serialVersionUID = 1L;
 
-	public GameEndsEvent(Field source) {
+	public NextLevelEvent(Board source) {
 		super(source);
+		
 	}
 
 

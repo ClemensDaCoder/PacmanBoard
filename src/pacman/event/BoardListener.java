@@ -2,8 +2,6 @@ package pacman.event;
 
 import java.util.EventListener;
 
-import pacman.event.HasmovedEvent;
-
 public interface BoardListener extends EventListener{
 	
 	void hasmoved(HasmovedEvent e);
@@ -17,5 +15,7 @@ public interface BoardListener extends EventListener{
 	void scoreChanged(ScoreChangedEvent event);
 	
 	void fruitwasplaced(FruitPlacedEvent event);
+	
+	void nextLevel(NextLevelEvent event);
 	
 }

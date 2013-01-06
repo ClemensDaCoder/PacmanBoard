@@ -10,6 +10,7 @@ import pacman.event.FieldListener;
 import pacman.event.FruitPlacedEvent;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
+import pacman.event.NextLevelEvent;
 import pacman.event.ScoreChangedEvent;
 import pacman.model.bonus.Cherry;
 import pacman.model.bonus.Fruit;
@@ -125,7 +126,7 @@ public class Board {
 		// place fruit in random position
 		Fruit fruit = createRandomFruit();
 		field.addObject(fruit);
-		notifyListener(new FruitPlacedEvent(fruit,randomPosition));
+		notifyListener(new FruitPlacedEvent(fruit, randomPosition));
 	}
 
 	private Position getRandomPosition() {
@@ -164,6 +165,9 @@ public class Board {
 	public void decreaseRemainingPellets() {
 		if (remainingPellets > 0)
 			remainingPellets--;
+		if (remainingPellets == 0) {
+			//TODO throw nextLevelEvent
+		}
 	}
 
 	public void addListener(BoardListener listener) {
@@ -177,18 +181,14 @@ public class Board {
 	}
 
 	protected void notifyListener(HasmovedEvent event) {
-		System.out.println("Notify");
 		for (BoardListener l : listeners.getListeners(BoardListener.class)) {
-			// System.out.println("Listerner");
 			l.hasmoved(event);
 		}
 
 	}
 
 	protected void notifyListener(MoveNotPossibleEvent event) {
-		// System.out.println("Notify");
 		for (BoardListener l : listeners.getListeners(BoardListener.class)) {
-			// System.out.println("Listerner");
 			l.moveNotpossible(event);
 		}
 
@@ -202,11 +202,16 @@ public class Board {
 
 	protected void notifyListener(ScoreChangedEvent event) {
 		for (BoardListener l : listeners.getListeners(BoardListener.class)) {
-			// System.out.println("Listerner");
 			l.scoreChanged(event);
 		}
 	}
-
+	
+	protected void notifyListener(NextLevelEvent event) {
+		for (BoardListener l : listeners.getListeners(BoardListener.class)) {
+			l.nextLevel(event);
+		}
+	}
+	
 	public void addFieldListeners(FieldListener listener) {
 		for (Field f : gameArea.values()) {
 			f.addListener(listener);
