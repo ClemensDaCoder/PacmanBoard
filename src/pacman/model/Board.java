@@ -120,6 +120,23 @@ public class Board {
 		}*/
 	}
 	
+//	private void putSomething() {
+//		//put fields in all available positions
+//		for (Position position : Position.values()) {
+//			Field field = new Field();
+//			gameArea.put(position, field);
+//			if (position.getX() == 'A' || position.getX() == 'Z') {
+//				field.addObject(new Wall());
+//			} else if (field.isEmpty() && (position.getX() == 'C' || position.getX() == 'X') && (position.getY() >= 3 && position.getY() <= 33)) {
+//				field.addObject(new Wall());
+//			} else if (field.isEmpty() && (position.getX() == 'E'|| position.getX() == 'U') && (position.getY() >= 5 && position.getY() <= 31)) {
+//				field.addObject(new Wall());
+//			}
+//		}
+//		//put walls in fields of specific positions
+//		//in the a row
+//	}
+	
 	private void putWall(Position position, char X1, char X2, int Y1, int Y2){
 		Field f = new Field();
 		if(((position.getX() == X1) || (position.getX() == X2)) && (position.getX() != 'M')){	

@@ -16,5 +16,9 @@ public abstract class GridObject {
 		return name;
 	}
 	
+	public String toString() {
+		return getName();
+	}
+	
 	
 }
