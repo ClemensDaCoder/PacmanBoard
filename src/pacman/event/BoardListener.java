@@ -16,4 +16,6 @@ public interface BoardListener extends EventListener{
 	
 	void scoreChanged(ScoreChangedEvent event);
 	
+	void fruitwasplaced(FruitPlacedEvent event);
+	
 }
