@@ -21,6 +21,7 @@ public class Board {
 	private EventListenerList listeners = new EventListenerList();
 	private int score;
 
+	
 	public Board() {
 		score = 0;
 		// init();
