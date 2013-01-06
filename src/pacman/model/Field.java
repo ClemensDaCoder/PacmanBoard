@@ -11,16 +11,23 @@ import pacman.event.GameEndsEvent;
 import pacman.model.bonus.BonusObject;
 import pacman.model.move.Ghost;
 import pacman.model.move.PacMan;
+
 public class Field {
 
 	public List<GridObject> objects;
+	private EventListenerList listeners  = new EventListenerList();
+
 	
+	/** Creates a new field, which can be occupied by various {@link GridObject}s.
+	 *  
+	 */
 	public Field() {
 		objects = new ArrayList<GridObject>();
 	}
-	private EventListenerList listeners  = new EventListenerList();
-
-	/** 
+	
+	/** Computes the current state of the field.<p>
+	 * Considers all {@link GridObjects} currently on the field.<br>
+	 * E.g.: lets {@link PacMan} eat {@link BonusObject} or {@link Ghost} kill {@link PacMan}.
 	 * 
 	 */
 	public void computeState() {
@@ -48,18 +55,31 @@ public class Field {
 		}
 	}
 
+	/** Adds an {@link GridObject} to the field
+	 * @param object
+	 */
 	public void addObject(GridObject object) {
 		objects.add(object);
 	}
 
+	/**
+	 * @return all {@link GridObect}s on the field
+	 */
 	public List<GridObject> getObjectsOnField() {
 		return objects;
 	}
 
+	/** Removes a {@link GridObject} from the field
+	 * @param object
+	 * @return true if removal was successful
+	 */
 	public boolean removeObject(GridObject object) {
 		return objects.remove(object);
 	}
 
+	/**
+	 * @return true if this field is occupied by a {@link Wall}
+	 */
 	public boolean isWall() { 
 		for (GridObject object : objects) {
 			if (object instanceof Wall) {
@@ -69,6 +89,9 @@ public class Field {
 		return false;
 	}
 	
+	/**
+	 * @return true if this field contains a {@link PacMan}
+	 */
 	public boolean containsPacman() {
 		for (GridObject object : objects) {
 			if (object instanceof PacMan) {
@@ -78,6 +101,9 @@ public class Field {
 		return false;
 	}
 	
+	/** 
+	 * @return true if this field contains a {@link BonusObject}
+	 */
 	public boolean containsBonusObject() {
 		for (GridObject object : objects) {
 			if (object instanceof BonusObject) {
@@ -87,6 +113,9 @@ public class Field {
 		return false;
 	}
 	
+	/**
+	 * @return true if this field contains a {@link Ghost}
+	 */
 	public boolean containsGhost() {
 		for (GridObject object : objects) {
 			if (object instanceof Ghost) {
@@ -104,31 +133,48 @@ public class Field {
 		}
 		return null;
 	}
+	
+	private Ghost getGhost() {
+		for (GridObject object : objects) {
+			if (object instanceof Ghost) {
+				return (Ghost) object;
+			}
+		}
+		return null;
+	}
 
 	
+	/** Adds a {@link FieldListner} from this field.
+	 * @param listener
+	 */
 	public void addListener(FieldListener listener){
 		listeners.add(FieldListener.class, listener);		
 	}
 	
+	/** Removes a {@link FieldListener} from this field.
+	 * @param listener
+	 */
 	public void removeListener(FieldListener listener){
 		listeners.remove(FieldListener.class, listener);		
 	}
 	
+	/** Notifies all listeners in case of {@link BonusObjectEatenEvent}.
+	 * @param event
+	 */
 	public void notifyListener(BonusObjectEatenEvent event){
 		for(FieldListener l : listeners.getListeners(FieldListener.class))
 		{
-			//System.out.println("Listerner");
 			l.bonusObjectEaten(event);
 		}
 	}
+	
+	/** Notifies all listeners in case of {@link GameEndsEvent}.
+	 * @param event
+	 */
 	public void notifiyListener(GameEndsEvent event){
 		for(FieldListener l : listeners.getListeners(FieldListener.class))
 		{
-			//System.out.println("Listerner");
 			l.gamehasended(event);
 		}
 	}
-
-	
-
 }
