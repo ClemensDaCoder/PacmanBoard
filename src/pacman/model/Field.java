@@ -9,7 +9,6 @@ import pacman.event.BonusObjectEatenEvent;
 import pacman.event.FieldListener;
 import pacman.event.GameEndsEvent;
 import pacman.model.bonus.BonusObject;
-import pacman.model.bonus.Pellet;
 import pacman.model.move.Ghost;
 import pacman.model.move.PacMan;
 public class Field {
@@ -21,6 +20,9 @@ public class Field {
 	}
 	private EventListenerList listeners  = new EventListenerList();
 
+	/** 
+	 * 
+	 */
 	public void computeState() {
 		//only check field if it is not empty and does not contain a wall
 		if (!objects.isEmpty() && !isWall()) {
@@ -102,25 +104,14 @@ public class Field {
 		}
 		return null;
 	}
-	
-	private Pellet getPellet() {
-		for (GridObject object : objects) {
-			if (object instanceof Pellet) {
-				return (Pellet) object;
-			}
-		}
-		return null;
-	}
+
 	
 	public void addListener(FieldListener listener){
-		listeners.add(FieldListener.class, listener);
-		
+		listeners.add(FieldListener.class, listener);		
 	}
 	
 	public void removeListener(FieldListener listener){
-		listeners.remove(FieldListener.class, listener);
-		
-		
+		listeners.remove(FieldListener.class, listener);		
 	}
 	
 	public void notifyListener(BonusObjectEatenEvent event){

@@ -7,8 +7,9 @@ package pacman.model.bonus;
 public class Cherry extends Fruit {
 	
 	public Cherry() {
-		this.value = Fruit.CHERRY_VALUE;
+		super("Cherry", Fruit.CHERRY_VALUE);
 	}
+
 	
 	
 	

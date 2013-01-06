@@ -6,8 +6,10 @@ package pacman.model.bonus;
  */
 public class Pellet extends BonusObject {
 	
+	protected static int PELLET_VALUE = 10;
+	
 	public Pellet() {
-		this.value = BonusObject.PELLET_VALUE;
+		super("Pellet", PELLET_VALUE);
 	}
 
 	@Override
@@ -15,6 +17,5 @@ public class Pellet extends BonusObject {
 		//empty because pellets do nothing special
 		//Power Pellets - do		
 	}
-	
 	
 }

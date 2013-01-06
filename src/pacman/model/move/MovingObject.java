@@ -6,11 +6,10 @@ import pacman.model.Position;
 public abstract class MovingObject extends GridObject {
 	
 	private Position currentPosition;
-	private String description;
 	
-	public MovingObject(String description, Position position) {
+	public MovingObject(Position position, String name) {
+		super(name);
 		this.currentPosition = position;
-		this.description = description;
 	}
 
 	public Position getCurrentPosition() {
@@ -19,15 +18,6 @@ public abstract class MovingObject extends GridObject {
 
 	public void setCurrentPosition(Position currentPosition) {
 		this.currentPosition = currentPosition;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
+	}	
 	
 }

@@ -9,11 +9,16 @@ import pacman.model.GridObject;
  */
 public abstract class BonusObject extends GridObject {
 	
-	protected static int PELLET_VALUE = 10;
+//	public BonusObject(String name) {
+//		super(name);
+//	}
 	
+	private int value;
 	
-	
-	protected int value;
+	public BonusObject(String name, int value) {
+		super(name);
+		this.value = value;
+	}	
 
 	/**
 	 * @return value of {@link BonusObject}
