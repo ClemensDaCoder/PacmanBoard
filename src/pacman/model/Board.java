@@ -1,6 +1,5 @@
 package pacman.model;
 
-import java.util.EventListener;
 import java.util.HashMap;
 
 import javax.swing.event.EventListenerList;
@@ -10,7 +9,6 @@ import pacman.event.FieldListener;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
 import pacman.event.ScoreChangedEvent;
-import pacman.model.bonus.BonusObject;
 import pacman.model.move.MovingObject;
 
 public class Board {
@@ -113,15 +111,6 @@ public class Board {
 		Board board = Board.getInstance();
 		board.init();
 	}
-
-	public class BonusObjectEventListener implements EventListener {
-		public BonusObjectEventListener() {
-		}
-
-		public void handleEvent(BonusObject o) {
-			increaseScore(o.getValue());
-		}
-	};
 
 	public void addListener(BoardListener listener) {
 		listeners.add(BoardListener.class, listener);
