@@ -50,6 +50,8 @@ public class Board {
 	public void moveObjects() {
 		for (MovingObject movingObject : movingObjects) {
 			moveObject(movingObject, movingObject.getMoveDirection());
+			Field field = gameArea.get(movingObject.getCurrentPosition());
+			field.computeState();
 		}
 	}
 
