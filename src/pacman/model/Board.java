@@ -8,6 +8,7 @@ import pacman.event.BoardListener;
 import pacman.event.FieldListener;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
+import pacman.event.ScoreChangedEvent;
 import pacman.model.bonus.BonusObject;
 import pacman.model.bonus.Pellet;
 import pacman.model.move.MovingObject;
@@ -67,6 +68,7 @@ public class Board {
 	 */
 	public void increaseScore(int value) {
 		score += value;
+		notifyListener(new ScoreChangedEvent(score));
 	}
 
 	/**
@@ -162,7 +164,7 @@ public class Board {
 		
 	}
 	protected void notifyListener(MoveNotPossibleEvent event){
-		System.out.println("Notify");
+		//System.out.println("Notify");
 		for(BoardListener l : listeners.getListeners(BoardListener.class))
 		{
 			//System.out.println("Listerner");
@@ -171,6 +173,14 @@ public class Board {
 		
 		
 	}
+	protected void notifyListener(ScoreChangedEvent event){
+		for(BoardListener l : listeners.getListeners(BoardListener.class))
+		{
+			//System.out.println("Listerner");
+			l.scoreChanged(event);
+		}
+	}
+
 	public void addFieldListeners(FieldListener listener )
 	{
 		for(Field f : gameArea.values())

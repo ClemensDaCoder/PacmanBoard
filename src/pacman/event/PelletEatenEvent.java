@@ -2,9 +2,14 @@ package pacman.event;
 
 public class PelletEatenEvent extends java.util.EventObject {
 	
-	public PelletEatenEvent(Object source) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public PelletEatenEvent() {
 		
-		super(source);
+		super(new Object());
 		// TODO Auto-generated constructor stub
 	}
 
