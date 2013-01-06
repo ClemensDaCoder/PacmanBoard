@@ -10,7 +10,7 @@ import javax.swing.event.EventListenerList;
 import pacman.event.BoardListener;
 import pacman.event.FieldListener;
 import pacman.event.FruitPlacedEvent;
-import pacman.event.HasmovedEvent;
+import pacman.event.HasMovedEvent;
 import pacman.event.MoveNotPossibleEvent;
 import pacman.event.NextLevelEvent;
 import pacman.event.ScoreChangedEvent;
@@ -75,7 +75,7 @@ public class Board {
 			movingObject.setCurrentPosition(next);
 			nextField.addObject(movingObject);
 			currentField.removeObject(movingObject);
-			notifyListener(new HasmovedEvent(current, next, movingObject));
+			notifyListener(new HasMovedEvent(current, next, movingObject));
 		} else {
 			notifyListener(new MoveNotPossibleEvent(movingObject));
 		}
@@ -244,7 +244,7 @@ public class Board {
 
 	}
 
-	protected void notifyListener(HasmovedEvent event) {
+	protected void notifyListener(HasMovedEvent event) {
 		for (BoardListener l : listeners.getListeners(BoardListener.class)) {
 			l.hasmoved(event);
 		}

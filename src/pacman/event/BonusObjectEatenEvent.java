@@ -1,22 +1,20 @@
 package pacman.event;
 
+import java.util.EventObject;
+
 import pacman.model.bonus.BonusObject;
 
-public class BonusObjectEatenEvent extends java.util.EventObject {
+public class BonusObjectEatenEvent extends EventObject {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	BonusObject bonusobject;
+	BonusObject bonusObject;
 
 	public BonusObjectEatenEvent(BonusObject source) {
 		super(source);
-		this.bonusobject = source;
+		this.bonusObject = source;
 	}
 
 	public BonusObject getBonusObject() {
-		return bonusobject;
+		return bonusObject;
 	}
 
 }

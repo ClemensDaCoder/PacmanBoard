@@ -4,7 +4,7 @@ import java.util.EventListener;
 
 public interface BoardListener extends EventListener {
 
-	public void hasmoved(HasmovedEvent e);
+	public void hasmoved(HasMovedEvent e);
 
 	/**
 	 * Prints, that the move is not possible

@@ -7,7 +7,7 @@ import javax.swing.event.EventListenerList;
 
 import pacman.event.BonusObjectEatenEvent;
 import pacman.event.FieldListener;
-import pacman.event.GameEndsEvent;
+import pacman.event.GameOverEvent;
 import pacman.model.bonus.BonusObject;
 import pacman.model.move.Ghost;
 import pacman.model.move.PacMan;
@@ -47,7 +47,7 @@ public class Field {
 				}
 			} 
 			if (containsPacman() && containsGhost()) {
-				notifiyListener(new GameEndsEvent(this));
+				notifiyListener(new GameOverEvent(this));
 				//TODO: end game
 				//throw event deswegen
 			}
@@ -175,10 +175,10 @@ public class Field {
 		}
 	}
 	
-	/** Notifies all listeners in case of {@link GameEndsEvent}.
+	/** Notifies all listeners in case of {@link GameOverEvent}.
 	 * @param event
 	 */
-	public void notifiyListener(GameEndsEvent event){
+	public void notifiyListener(GameOverEvent event){
 		for(FieldListener l : listeners.getListeners(FieldListener.class))
 		{
 			l.gamehasended(event);

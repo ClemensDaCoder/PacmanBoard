@@ -2,8 +2,8 @@ package pacman.view;
 
 import pacman.event.BonusObjectEatenEvent;
 import pacman.event.FruitPlacedEvent;
-import pacman.event.GameEndsEvent;
-import pacman.event.HasmovedEvent;
+import pacman.event.GameOverEvent;
+import pacman.event.HasMovedEvent;
 import pacman.event.MoveNotPossibleEvent;
 import pacman.event.NextLevelEvent;
 import pacman.event.ScoreChangedEvent;
@@ -12,14 +12,14 @@ import pacman.event.ScoreChangedEvent;
 public class TextView implements PacmanView{
 
 	@Override
-	public void hasmoved(HasmovedEvent e) {
+	public void hasmoved(HasMovedEvent e) {
 		System.out.println(e.getMov().getName() + " has moved from " + e.getOldPos().toString() + " to " + e.getNewPos().toString());
 		//e.getOldPos().toString();		
 	}
 
 	@Override
 	public void moveNotpossible(MoveNotPossibleEvent e) {
-		System.out.println(e.getMov().getName() + " trifft auf Begrenzung – Kein Ereignis");
+		System.out.println(e.getMovingObject().getName() + " trifft auf Begrenzung – Kein Ereignis");
 		
 	}
 
@@ -35,7 +35,7 @@ public class TextView implements PacmanView{
 	}
 
 	@Override
-	public void gamehasended(GameEndsEvent event) {
+	public void gamehasended(GameOverEvent event) {
 		System.out.println("Geist trifft auf Pac-Man – Spielende");		
 		System.err.println("STOP STOP STOP STOP STOP STOP STOP");
 	}

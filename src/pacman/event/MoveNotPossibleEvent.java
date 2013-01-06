@@ -1,36 +1,28 @@
 package pacman.event;
 
+import java.util.EventObject;
+
 import pacman.model.move.MovingObject;
 
-/**
- * 
- * @author Katharina Event if the Movement is not possible
+/** Indicates that a {@link MovingObject} could not move.
  */
 
-public class MoveNotPossibleEvent extends java.util.EventObject {
+public class MoveNotPossibleEvent extends EventObject {
+
+
+	MovingObject movingObject;
 
 	/**
 	 * 
+	 * @return a {@link MovingObject} that cannot move
 	 */
-	private static final long serialVersionUID = 1L;
-	MovingObject mov;
-
-	/**
-	 * 
-	 * @return Moving Object of the Event
-	 */
-	public MovingObject getMov() {
-		return mov;
+	public MovingObject getMovingObject() {
+		return movingObject;
 	}
 
-	/**
-	 * Konstruktor for the Event
-	 * 
-	 * @param mov
-	 */
-	public MoveNotPossibleEvent(MovingObject mov) {
-		super(mov);
-		this.mov = mov;
+	public MoveNotPossibleEvent(MovingObject movingObject) {
+		super(movingObject);
+		this.movingObject = movingObject;
 	}
 
 }

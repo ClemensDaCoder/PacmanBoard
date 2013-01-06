@@ -1,21 +1,19 @@
 package pacman.event;
 
+import java.util.EventObject;
+
 import pacman.model.Position;
 import pacman.model.bonus.Fruit;
 
-public class FruitPlacedEvent extends java.util.EventObject {
+public class FruitPlacedEvent extends EventObject {
 
 	Fruit fruit;
-	Position pos;
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	Position position;
 
 	public FruitPlacedEvent(Fruit source, Position pos) {
 		super(source);
 		this.fruit = source;
-		this.pos = pos;
+		this.position = pos;
 	}
 
 	public Fruit getFruit() {
@@ -23,7 +21,7 @@ public class FruitPlacedEvent extends java.util.EventObject {
 	}
 
 	public Position getPos() {
-		return pos;
+		return position;
 	}
 
 }
