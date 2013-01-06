@@ -163,20 +163,20 @@ public enum Position {
 
 	private static Position nextRight(Position pos) {
 		char newX = (char) (pos.x + 1);
-		return getPosition(newX, pos.y);
+		return (Position.isValidPosition(newX, pos.y)) ? getPosition(newX, pos.y) : pos;
 	}
 
 	private static Position nextLeft(Position pos) {
 		char newX = (char) (pos.x - 1);
-		return getPosition(newX, pos.y);
+		return (Position.isValidPosition(newX, pos.y)) ? getPosition(newX, pos.y) : pos;
 	}
 
 	private static Position nextUp(Position pos) {
-		return getPosition(pos.x, pos.y + 1);
+		return (Position.isValidPosition(pos.x, pos.y +1)) ?  getPosition(pos.x, pos.y + 1) : pos;
 	}
 
 	private static Position nextDown(Position pos) {
-		return getPosition(pos.x, pos.y - 1);
+		return (Position.isValidPosition(pos.x, pos.y -1)) ? getPosition(pos.x, pos.y - 1) : pos;
 	}
 
 	public int getY() {
@@ -186,10 +186,10 @@ public enum Position {
 	public Character getX() {
 		return x;
 	}
-
-//	public static boolean isValidPosition(Position pos) {
-//		return Character.isAlphabetic(pos.x) && pos.y <= 35;
-//	}
+	
+	private static boolean isValidPosition(char x, int y) {
+		return Character.isAlphabetic(x) && y <= 35;
+	}
 
 	public String toString() {
 		return "Position " + x + y;
