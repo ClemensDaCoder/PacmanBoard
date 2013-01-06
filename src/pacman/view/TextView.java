@@ -19,25 +19,26 @@ public class TextView implements PacmanView{
 
 	@Override
 	public void moveNotpossible(MoveNotPossibleEvent e) {
-		System.out.println(e.getMovingObject().getName() + " trifft auf Begrenzung – Kein Ereignis");
+		System.out.println(e.getSource().getName() + " trifft auf Begrenzung – Kein Ereignis");
 		
 	}
 
 	@Override
 	public void bonusObjectEaten(BonusObjectEatenEvent event) {
-		System.out.println("Pac-Man frisst" + event.getBonusObject().getName());
+		System.out.println("Pac-Man frisst" + event.getSource().getName());
 	}
 
 	@Override
 	public void scoreChanged(ScoreChangedEvent event) {
-		System.out.println(" – neue Punktezahl " + event.getNewscore());
+		System.out.println("Neue Punktezahl " + event.getSource());
 		
 	}
 
 	@Override
-	public void gamehasended(GameOverEvent event) {
+	public void gameOver(GameOverEvent event) {
 		System.out.println("Geist trifft auf Pac-Man – Spielende");		
 		System.err.println("STOP STOP STOP STOP STOP STOP STOP");
+		System.exit(0);
 	}
 
 	@Override

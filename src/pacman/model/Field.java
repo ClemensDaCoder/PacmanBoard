@@ -47,9 +47,10 @@ public class Field {
 				}
 			} 
 			if (containsPacman() && containsGhost()) {
-				notifiyListener(new GameOverEvent(this));
+				notifyListener(new GameOverEvent(this));
 				//TODO: end game
 				//throw event deswegen
+				System.exit(0);
 			}
 			//room for additional items like key and stuff
 		}
@@ -178,10 +179,10 @@ public class Field {
 	/** Notifies all listeners in case of {@link GameOverEvent}.
 	 * @param event
 	 */
-	public void notifiyListener(GameOverEvent event){
+	public void notifyListener(GameOverEvent event){
 		for(FieldListener l : listeners.getListeners(FieldListener.class))
 		{
-			l.gamehasended(event);
+			l.gameOver(event);
 		}
 	}
 }

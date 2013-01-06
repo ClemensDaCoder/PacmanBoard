@@ -10,19 +10,12 @@ import pacman.model.move.MovingObject;
 public class MoveNotPossibleEvent extends EventObject {
 
 
-	MovingObject movingObject;
-
-	/**
-	 * 
-	 * @return a {@link MovingObject} that cannot move
-	 */
-	public MovingObject getMovingObject() {
-		return movingObject;
-	}
-
 	public MoveNotPossibleEvent(MovingObject movingObject) {
 		super(movingObject);
-		this.movingObject = movingObject;
+	}
+	
+	public MovingObject getSource() {
+		return (MovingObject) source;
 	}
 
 }

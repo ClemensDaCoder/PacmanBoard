@@ -24,11 +24,11 @@ public class HasMovedEvent extends EventObject {
 	}
 
 
-	public HasMovedEvent(Position oldPos, Position newPos, MovingObject mov) {
-		super(mov);
-		this.oldPosition = oldPos;
-		this.newPosition = newPos;
-		this.movingObject = mov;
+	public HasMovedEvent(Position oldPosition, Position newPosition, MovingObject movingObject) {
+		super(movingObject);
+		this.oldPosition = oldPosition;
+		this.newPosition = newPosition;
+		this.movingObject = movingObject;
 	}
 
 }

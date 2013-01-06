@@ -6,6 +6,6 @@ public interface FieldListener extends EventListener {
 
 	public void bonusObjectEaten(BonusObjectEatenEvent event);
 
-	public void gamehasended(GameOverEvent event);
+	public void gameOver(GameOverEvent event);
 
 }

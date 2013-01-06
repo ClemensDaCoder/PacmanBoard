@@ -6,12 +6,12 @@ public class ScoreChangedEvent extends EventObject {
 
 	private int newScore;
 
-	public ScoreChangedEvent(Integer newScore) {
+	public ScoreChangedEvent(int newScore) {
 		super(newScore);
 		this.newScore = newScore;
 	}
 
-	public int getNewscore() {
+	public int getNewScore() {
 		return newScore;
 	}
 
