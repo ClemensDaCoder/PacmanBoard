@@ -175,11 +175,17 @@ public class Board {
 		init();
 	}
 
+	/** Adds listener for board.
+	 * @param listener
+	 */
 	public void addListener(BoardListener listener) {
 		listeners.add(BoardListener.class, listener);
 
 	}
 
+	/** Removes listener from board
+	 * @param listener
+	 */
 	public void removeListener(BoardListener listener) {
 		listeners.remove(BoardListener.class, listener);
 
@@ -217,12 +223,18 @@ public class Board {
 		}
 	}
 	
+	/** Registers listener for every {@link Field} of the game area.
+	 * @param listener
+	 */
 	public void addFieldListeners(FieldListener listener) {
 		for (Field f : gameArea.values()) {
 			f.addListener(listener);
 		}
 	}
 
+	/** Removes listener from every {@link Field} of the game area.
+	 * @param listener
+	 */
 	public void removeFieldListener(FieldListener listener) {
 		for (Field f : gameArea.values()) {
 			f.removeListener(listener);
