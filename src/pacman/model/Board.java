@@ -24,7 +24,7 @@ public class Board {
 	
 	public Board() {
 		score = 0;
-		// init();
+		init();
 	}
 
 	/**
@@ -100,28 +100,12 @@ public class Board {
 						|| (position.getY() == 35)) {
 					f.addObject(new Wall());
 				} else if ((position.getY() % 2 == 1) && (Character.getNumericValue(position.getX()) % 2 == 0)) {
-					System.out.println(position.toString());
 					f.addObject(new Wall());
 				}
 				gameArea.put(position, f);
 			}
 		}
 	}
-	
-	//TODO: remove this, as it is only for testing purposes
-	public static void main(String[] args) {
-		Board board = Board.getInstance();
-		board.init();
-	}
-
-	public class BonusObjectEventListener implements EventListener {
-		public BonusObjectEventListener() {
-		}
-
-		public void handleEvent(BonusObject o) {
-			increaseScore(o.getValue());
-		}
-	};
 
 	public void addListener(BoardListener listener) {
 		listeners.add(BoardListener.class, listener);
