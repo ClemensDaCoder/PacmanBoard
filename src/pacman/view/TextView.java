@@ -2,14 +2,13 @@ package pacman.view;
 
 import java.util.HashMap;
 
-import pacman.model.Field;
-import pacman.model.Position;
-import pacman.model.move.MovingObject;
-import pacman.event.BoardListener;
+import pacman.event.BonusObjectEatenEvent;
+import pacman.event.GameEndsEvent;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
-import pacman.event.BonusObjectEatenEvent;
 import pacman.event.ScoreChangedEvent;
+import pacman.model.Field;
+import pacman.model.Position;
 
 
 public class TextView implements PacmanView{
@@ -57,7 +56,7 @@ public class TextView implements PacmanView{
 	}
 
 	@Override
-	public void pelletEaten(BonusObjectEatenEvent event) {
+	public void bonusObjectEaten(BonusObjectEatenEvent event) {
 		System.out.println("Pac-Man frisst Punkt ");
 	}
 
@@ -65,5 +64,10 @@ public class TextView implements PacmanView{
 	public void scoreChanged(ScoreChangedEvent event) {
 		System.out.print(" – neue Punktezahl " + event.getNewscore());
 		
+	}
+
+	@Override
+	public void gamehasended(GameEndsEvent event) {
+		System.out.print("Geist trifft auf Pac-Man – Spielende");		
 	}
 }

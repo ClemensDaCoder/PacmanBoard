@@ -4,7 +4,10 @@ import java.util.EventListener;
 
 public interface FieldListener extends EventListener{
 	
-	void pelletEaten(BonusObjectEatenEvent event);
+	void bonusObjectEaten(BonusObjectEatenEvent event);
+
+
+	void gamehasended(GameEndsEvent event);
 
 }
 

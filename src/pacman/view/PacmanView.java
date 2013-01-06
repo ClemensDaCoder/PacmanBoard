@@ -6,7 +6,6 @@ import pacman.event.BoardListener;
 import pacman.event.FieldListener;
 import pacman.model.Field;
 import pacman.model.Position;
-import pacman.model.move.MovingObject;
 
 public interface PacmanView extends BoardListener, FieldListener{
 	/**
