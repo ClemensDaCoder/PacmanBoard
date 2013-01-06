@@ -13,8 +13,6 @@ public class ScoreChangedEvent extends EventObject{
 	public ScoreChangedEvent(Integer newscore) {
 		super(newscore);
 		this.newscore = newscore;
-		
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getNewscore() {

@@ -16,7 +16,6 @@ public class FruitPlacedEvent extends java.util.EventObject {
 		super(source);
 		this.fruit = source;
 		this.pos = pos;
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Fruit getFruit(){

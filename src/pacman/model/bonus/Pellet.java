@@ -1,5 +1,7 @@
 package pacman.model.bonus;
 
+import pacman.model.Board;
+
 /**
  * @author mwe
  *
@@ -14,8 +16,7 @@ public class Pellet extends BonusObject {
 
 	@Override
 	public void executeAction() {
-		//empty because pellets do nothing special
-		//Power Pellets - do		
+		Board.getInstance().decreaseRemainingPellets();
 	}
 	
 }
