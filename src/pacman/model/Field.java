@@ -25,11 +25,11 @@ public class Field {
 			if (containsPacman() && containsPellet()) {
 				
 				notifyListener(new PelletEatenEvent(this));
-				//TODO: remove pellet from field
-				
 				//increase score
-			
-				
+				Pellet pellet = getPellet();
+				Board.getInstance().increaseScore(pellet.getValue());
+				//remove pellet from field
+				objects.remove(pellet);
 			} 
 			if (containsPacman() && containsGhost()) {
 				//TODO: end game
@@ -85,6 +85,15 @@ public class Field {
 			}
 		}
 		return false;
+	}
+	
+	private Pellet getPellet() {
+		for (GridObject object : objects) {
+			if (object instanceof Pellet) {
+				return (Pellet) object;
+			}
+		}
+		return null;
 	}
 	
 	public void addListener(FieldListener listener){
