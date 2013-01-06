@@ -11,6 +11,7 @@ import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
 import pacman.event.ScoreChangedEvent;
 import pacman.model.bonus.BonusObject;
+import pacman.model.bonus.Pellet;
 import pacman.model.move.MovingObject;
 
 public class Board {
@@ -20,6 +21,7 @@ public class Board {
 	private HashMap<Position, Field> gameArea;
 	private EventListenerList listeners = new EventListenerList();
 	private int score;
+	private int remainingPellets;
 
 	
 	public Board() {
@@ -88,6 +90,8 @@ public class Board {
 	public void init() {
 		gameArea = new HashMap<Position, Field>();
 		initGameArea();
+		
+		initPellets();
 	}
 
 	private void initGameArea() {
@@ -105,6 +109,28 @@ public class Board {
 				gameArea.put(position, f);
 			}
 		}
+	}
+	
+	private void initPellets() {
+		Field f;
+		remainingPellets = 0;
+		for (Position position : Position.values()) {
+			f = new Field();
+			if (f.isEmpty()) {
+				f.addObject(new Pellet());
+				gameArea.put(position, f);
+				remainingPellets++;
+			}
+		}
+	}
+
+	public int getRemainingPellets() {
+		return remainingPellets;
+	}
+	
+	public void decreaseRemainingPellets(){
+		if(remainingPellets > 0)
+			remainingPellets--;
 	}
 
 	public void addListener(BoardListener listener) {
