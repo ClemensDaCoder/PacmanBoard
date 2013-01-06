@@ -25,14 +25,17 @@ public class Field {
 		//only check field if it is not empty and does not contain a wall
 		if (!objects.isEmpty() && !isWall()) {
 			if (containsPacman() && containsBonusObject()) {
-				BonusObject bonusObject = getBonusObject();
-				notifyListener(new BonusObjectEatenEvent(bonusObject));
-				//increase score
-				Board.getInstance().increaseScore(bonusObject.getValue());
-				//execute special action of bonus object
-				bonusObject.executeAction();
-				//remove pellet from field
-				objects.remove(bonusObject);
+				//make sure pacman eats all bonus objects available on field
+				while (containsBonusObject()) {
+					BonusObject bonusObject = getBonusObject();
+					notifyListener(new BonusObjectEatenEvent(bonusObject));
+					//increase score
+					Board.getInstance().increaseScore(bonusObject.getValue());
+					//execute special action of bonus object
+					bonusObject.executeAction();
+					//remove bonus object from field
+					objects.remove(bonusObject);
+				}
 			} 
 			if (containsPacman() && containsGhost()) {
 				notifiyListener(new GameEndsEvent(this));
