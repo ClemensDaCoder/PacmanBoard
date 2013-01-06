@@ -4,12 +4,12 @@ import pacman.model.Position;
 
 public class Ghost extends MovingObject {
 	
-	public Ghost(Position position, String name) {
-		super(position, name);
+	public Ghost(Position position, String name, MovingStrategy movingStrategy) {
+		super(position, name, movingStrategy);
 	}
 	
-	public Ghost(Position position) {
-		super(position, "Ghost");
-	}
+//	public Ghost(Position position) {
+//		super(position, "Ghost", new RandomMovingStrategy());
+//	}
 	
 }

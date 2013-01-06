@@ -1,6 +1,8 @@
 package pacman.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 import javax.swing.event.EventListenerList;
@@ -16,20 +18,38 @@ import pacman.model.bonus.Cherry;
 import pacman.model.bonus.Fruit;
 import pacman.model.bonus.Peach;
 import pacman.model.bonus.Pellet;
+import pacman.model.move.Ghost;
 import pacman.model.move.MovingObject;
+import pacman.model.move.MovingStrategy;
+import pacman.model.move.PacMan;
 
 public class Board {
 
 	private static Board instance = null;
 
 	private HashMap<Position, Field> gameArea;
-	private EventListenerList listeners = new EventListenerList();
+	private EventListenerList listeners;
+	private List<MovingObject> movingObjects;
 	private int score;
 	private int remainingPellets;
 
-	public Board() {
+	
+	
+	private Board() {
 		score = 0;
-		init();
+		listeners = new EventListenerList();
+		gameArea = new HashMap<Position, Field>();
+		movingObjects = new ArrayList<MovingObject>();
+		//	startLevel();
+	}
+	
+	/** Move all movable objects on board.
+	 * 
+	 */
+	public void moveObjects() {
+		for (MovingObject movingObject : movingObjects) {
+			moveObject(movingObject, movingObject.getMoveDirection());
+		}
 	}
 
 	/**
@@ -40,7 +60,7 @@ public class Board {
 	 * @param movingObject
 	 * @param direction
 	 */
-	public void moveObject(MovingObject movingObject, Direction direction) {
+	private void moveObject(MovingObject movingObject, Direction direction) {
 
 		Position current = movingObject.getCurrentPosition();
 		Position next = current.next(direction);
@@ -53,9 +73,7 @@ public class Board {
 			nextField.addObject(movingObject);
 			currentField.removeObject(movingObject);
 			notifyListener(new HasmovedEvent(current, next, movingObject));
-
 		} else {
-
 			notifyListener(new MoveNotPossibleEvent(movingObject));
 		}
 	}
@@ -86,13 +104,45 @@ public class Board {
 		}
 		return instance;
 	}
+	
+	/** Adds a {@link Ghost} with a given {@link MovingStrategy}
+	 * @param movingStrategy
+	 */
+	public void addGhost(MovingStrategy movingStrategy) {
+		Position position = getRandomPosition();
+		Field field = gameArea.get(position);
+		while (field.isWall() || field.containsPacman()) {
+			position = getRandomPosition();
+			field = gameArea.get(position);
+		}
+		int ghostnumber = movingObjects.size();
+		Ghost ghost = new Ghost(position,"Ghost" + ghostnumber, movingStrategy);
+		movingObjects.add(ghost);	
+		//TODO: throw event that a ghost has been added or so
+	}
+	
+	/** Adds a {@link PacMan} with a given {@link MovingStrategy}<br>
+	 * <b>IMPORTANT:</b> Only one PacMan can be added.<br>
+	 * Returns true if {@link PacMan} was added, otherwise false
+	 * @param movingStrategy
+	 */
+	public boolean addPacman(MovingStrategy movingStrategy) {
+		for (MovingObject movingObject : movingObjects) {
+			if (movingObject instanceof PacMan) {
+				return false;
+			}
+		}
+		PacMan pacman = new PacMan(Position.M_24, "PacMan", movingStrategy);
+		movingObjects.add(pacman);
+		//throw event that pacman has been added or so
+		return true;
+	}
 
 	/**
 	 * Initializes Board.
 	 * 
 	 */
-	public void init() {
-		gameArea = new HashMap<Position, Field>();
+	public void startLevel() {
 		initGameArea();
 		initFruit();
 		initPellets();
@@ -117,7 +167,7 @@ public class Board {
 	private void initFruit() {
 		Position randomPosition = getRandomPosition();
 		Field field = gameArea.get(randomPosition);
-		// look for emtpy field
+		// look for empty field
 		while (!field.isEmpty()) {
 			randomPosition = getRandomPosition();
 			field = gameArea.get(randomPosition);
@@ -172,7 +222,7 @@ public class Board {
 	}
 	
 	private void nextLevel() {
-		init();
+		startLevel();
 	}
 
 	/** Adds listener for board.
@@ -240,7 +290,6 @@ public class Board {
 			f.removeListener(listener);
 		}
 
-	}
-	
+	}	
 
 }

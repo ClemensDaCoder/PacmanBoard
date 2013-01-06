@@ -30,10 +30,10 @@ public class Pacmanmain {
 			
 	}
 	public void startgame(){
-		board = new Board();
+		board = Board.getInstance();
 		userInterface = new TextView();
 		board.addListener(userInterface);
-		board.init();
+		board.startLevel();
 		
 
 		

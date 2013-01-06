@@ -1,7 +1,5 @@
 package pacman.view;
 
-import java.util.HashMap;
-
 import pacman.event.BonusObjectEatenEvent;
 import pacman.event.FruitPlacedEvent;
 import pacman.event.GameEndsEvent;
@@ -9,8 +7,6 @@ import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
 import pacman.event.NextLevelEvent;
 import pacman.event.ScoreChangedEvent;
-import pacman.model.Field;
-import pacman.model.Position;
 
 
 public class TextView implements PacmanView{
