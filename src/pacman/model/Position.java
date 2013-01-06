@@ -129,6 +129,9 @@ public enum Position {
 			'O', 35), P_35('P', 35), Q_35('Q', 35), R_35('R', 35), S_35('S', 35), T_35('T', 35), U_35('U', 35), V_35(
 			'V', 35), W_35('W', 35), X_35('X', 35), Y_35('Y', 35), Z_35('Z', 35);
 
+	public static int ROWS = 35;
+	public static int COLUMNS = 26;
+	
 	private int y;
 
 	private char x;
@@ -184,9 +187,9 @@ public enum Position {
 		return x;
 	}
 
-	public static boolean isValidPosition(Position pos) {
-		return Character.isAlphabetic(pos.x) && pos.y <= 35;
-	}
+//	public static boolean isValidPosition(Position pos) {
+//		return Character.isAlphabetic(pos.x) && pos.y <= 35;
+//	}
 
 	public String toString() {
 		return "Position " + x + y;
