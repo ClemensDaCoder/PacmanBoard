@@ -13,7 +13,7 @@ public class TextView implements PacmanView{
 
 	@Override
 	public void hasmoved(HasmovedEvent e) {
-		System.out.println(e.getMov().getName() + " has moved from" + e.getOldPos().toString() + " to " + e.getNewPos().toString());
+		System.out.println(e.getMov().getName() + " has moved from " + e.getOldPos().toString() + " to " + e.getNewPos().toString());
 		//e.getOldPos().toString();		
 	}
 
@@ -37,6 +37,7 @@ public class TextView implements PacmanView{
 	@Override
 	public void gamehasended(GameEndsEvent event) {
 		System.out.println("Geist trifft auf Pac-Man – Spielende");		
+		System.err.println("STOP STOP STOP STOP STOP STOP STOP");
 	}
 
 	@Override

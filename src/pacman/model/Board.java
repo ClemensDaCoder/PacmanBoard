@@ -47,7 +47,7 @@ public class Board {
 	/** Move all movable objects on board.
 	 * 
 	 */
-	public void moveObjects() {
+	public void start() {
 		for (MovingObject movingObject : movingObjects) {
 			moveObject(movingObject, movingObject.getMoveDirection());
 			Field field = gameArea.get(movingObject.getCurrentPosition());
@@ -145,7 +145,7 @@ public class Board {
 	 * Initializes Board.
 	 * 
 	 */
-	public void startLevel() {
+	public void initLevel() {
 //		initGameArea();
 		initFruit();
 		initPellets();
@@ -225,7 +225,7 @@ public class Board {
 	}
 	
 	private void nextLevel() {
-		startLevel();
+		initLevel();
 	}
 
 	/** Adds listener for board.

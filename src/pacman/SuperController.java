@@ -28,10 +28,10 @@ public class SuperController {
 		board.addGhost(new RandomMovingStrategy());
 		
 		//start game
-		board.startLevel();
+		board.initLevel();
 		
 		while(true) {
-			board.moveObjects();
+			board.start();
 		}
 	}
 	
