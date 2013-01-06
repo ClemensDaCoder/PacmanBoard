@@ -152,17 +152,17 @@ public class Board {
 	}
 
 	private void initGameArea() {
-		Field f;
+		Field field;
 		for (Position position : Position.values()) {
-			f = new Field();
-			if (f.isEmpty()) {
+			field = new Field();
+			if (field.isEmpty()) {
 				if ((position.getX() == 'A') || (position.getX() == 'Z') || (position.getY() == 1)
 						|| (position.getY() == 35)) {
-					f.addObject(new Wall());
+					field.addObject(new Wall());
 				} else if ((position.getY() % 2 == 1) && (Character.getNumericValue(position.getX()) % 2 == 0)) {
-					f.addObject(new Wall());
+					field.addObject(new Wall());
 				}
-				gameArea.put(position, f);
+				gameArea.put(position, field);
 			}
 		}
 	}
@@ -198,13 +198,13 @@ public class Board {
 	}
 
 	private void initPellets() {
-		Field f;
+		Field field;
 		remainingPellets = 0;
 		for (Position position : Position.values()) {
-			f = new Field();
-			if (f.isEmpty()) {
-				f.addObject(new Pellet());
-				gameArea.put(position, f);
+			field = gameArea.get(position);
+			if (field.isEmpty()) {
+				field.addObject(new Pellet());
+				gameArea.put(position, field);
 				remainingPellets++;
 			}
 		}

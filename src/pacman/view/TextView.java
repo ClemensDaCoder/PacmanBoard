@@ -9,7 +9,7 @@ import pacman.event.NextLevelEvent;
 import pacman.event.ScoreChangedEvent;
 
 
-public class TextView implements PacmanView{
+public class TextView implements PacmanView {
 
 	@Override
 	public void hasmoved(HasMovedEvent e) {

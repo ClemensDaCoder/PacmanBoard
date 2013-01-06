@@ -15,7 +15,7 @@ import pacman.model.move.PacMan;
 public class Field {
 
 	public List<GridObject> objects;
-	private EventListenerList listeners  = new EventListenerList();
+	private EventListenerList listeners;
 
 	
 	/** Creates a new field, which can be occupied by various {@link GridObject}s.
@@ -23,6 +23,7 @@ public class Field {
 	 */
 	public Field() {
 		objects = new ArrayList<GridObject>();
+		listeners = new EventListenerList();
 	}
 	
 	/** Computes the current state of the field.<p>
@@ -50,7 +51,7 @@ public class Field {
 				notifyListener(new GameOverEvent(this));
 				//TODO: end game
 				//throw event deswegen
-				System.exit(0);
+//				System.exit(0);
 			}
 			//room for additional items like key and stuff
 		}
