@@ -1,6 +1,7 @@
 package pacman.model;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import javax.swing.event.EventListenerList;
 
@@ -9,6 +10,9 @@ import pacman.event.FieldListener;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
 import pacman.event.ScoreChangedEvent;
+import pacman.model.bonus.Cherry;
+import pacman.model.bonus.Fruit;
+import pacman.model.bonus.Peach;
 import pacman.model.move.MovingObject;
 
 public class Board {
@@ -19,7 +23,6 @@ public class Board {
 	private EventListenerList listeners = new EventListenerList();
 	private int score;
 
-	
 	public Board() {
 		score = 0;
 		// init();
@@ -80,7 +83,8 @@ public class Board {
 		return instance;
 	}
 
-	/** Initializes Board.
+	/**
+	 * Initializes Board.
 	 * 
 	 */
 	public void init() {
@@ -105,8 +109,38 @@ public class Board {
 			}
 		}
 	}
-	
-	//TODO: remove this, as it is only for testing purposes
+
+	private void initFruit() {
+		Position randomPosition = getRandomPosition();
+		Field field = gameArea.get(randomPosition);
+		// look for emtpy field
+		while (!field.isEmpty()) {
+			randomPosition = getRandomPosition();
+			field = gameArea.get(randomPosition);
+		}
+		//place fruit in random position
+		Fruit fruit = createRandomFruit();
+		field.addObject(fruit);
+		// TODO: throw frucht platziert event
+	}
+
+	private Position getRandomPosition() {
+		Random random = new Random();
+		int randomPositionValue = random.nextInt((Position.ROWS * Position.COLUMNS) - 1);
+		return Position.values()[randomPositionValue];
+	}
+
+	private Fruit createRandomFruit() {
+		Random random = new Random();
+		int randomFruitValue = random.nextInt(1);
+		if (randomFruitValue == 0) {
+			return new Peach();
+		} else {
+			return new Cherry();
+		}
+	}
+
+	// TODO: remove this, as it is only for testing purposes
 	public static void main(String[] args) {
 		Board board = Board.getInstance();
 		board.init();
