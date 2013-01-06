@@ -1,6 +1,8 @@
 package pacman.event;
 
-public class ScoreChangedEvent extends java.util.EventObject{
+import java.util.EventObject;
+
+public class ScoreChangedEvent extends EventObject{
 
 	private int newscore;
 	/**
