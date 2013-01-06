@@ -13,7 +13,6 @@ public class BonusObjectEatenEvent extends java.util.EventObject {
 	public BonusObjectEatenEvent(BonusObject source) {
 		super(source);
 		this.bonusobject = source;
-		// TODO Auto-generated constructor stub
 	}
 	
 	public BonusObject getBonusObject()

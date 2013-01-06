@@ -7,6 +7,7 @@ import javax.swing.event.EventListenerList;
 
 import pacman.event.BoardListener;
 import pacman.event.FieldListener;
+import pacman.event.FruitPlacedEvent;
 import pacman.event.HasmovedEvent;
 import pacman.event.MoveNotPossibleEvent;
 import pacman.event.ScoreChangedEvent;
@@ -124,7 +125,7 @@ public class Board {
 		// place fruit in random position
 		Fruit fruit = createRandomFruit();
 		field.addObject(fruit);
-		// TODO: throw frucht platziert event
+		notifyListener(new FruitPlacedEvent(fruit,randomPosition));
 	}
 
 	private Position getRandomPosition() {
@@ -192,6 +193,12 @@ public class Board {
 		}
 
 	}
+	
+	protected void notifyListener(FruitPlacedEvent event){
+		for (BoardListener l : listeners.getListeners(BoardListener.class)) {
+			l.fruitwasplaced(event);
+		}
+	}
 
 	protected void notifyListener(ScoreChangedEvent event) {
 		for (BoardListener l : listeners.getListeners(BoardListener.class)) {
@@ -212,5 +219,6 @@ public class Board {
 		}
 
 	}
+	
 
 }
