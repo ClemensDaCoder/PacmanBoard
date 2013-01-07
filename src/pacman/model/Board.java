@@ -220,6 +220,7 @@ public class Board {
 			remainingPellets--;
 		if (remainingPellets == 0) {
 			notifyListener(new NextLevelEvent(this));
+			//System.exit(0);
 			//start next level
 			nextLevel();
 		}
