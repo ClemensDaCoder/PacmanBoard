@@ -5,12 +5,12 @@ import pacman.model.move.RandomMovingStrategy;
 import pacman.view.PacmanView;
 import pacman.view.TextView;
 
-public class SuperController {
+public class PacManGame {
 	
 	private Board board;
 	private PacmanView view;
 	
-	SuperController() {
+	PacManGame() {
 		//create model
 		board = Board.getInstance();
 		//create view
@@ -35,7 +35,7 @@ public class SuperController {
 	}
 	
 	public static void main (String [] args) {
-		SuperController controller = new SuperController();
+		PacManGame pacmanGame = new PacManGame();
 	}
 
 }
