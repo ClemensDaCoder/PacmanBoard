@@ -128,7 +128,7 @@
       <operations public="true" package="false" protected="true" private="false"/>    
     </display>  
   </interface>  
-  <class id="17" corner="BOTTOM_RIGHT" language="java" name="pacman.SuperController" project="SE05_Pacman" 
+  <class id="17" corner="BOTTOM_RIGHT" language="java" name="pacman.PacManGame" project="SE05_Pacman" 
     file="/SE05_Pacman/src/pacman/SuperController.java" binary="false">    
     <position height="-1" width="-1" x="1458" y="328"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
