@@ -33,11 +33,16 @@ public class Board {
 	private List<MovingObject> movingObjects;
 	private int score;
 	private int remainingPellets;
+	private int level;
+	private boolean gameOver;
+	
 
 	
 	
 	private Board() {
 		score = 0;
+		level = 1;
+		gameOver = false;
 		listeners = new EventListenerList();
 		gameArea = new HashMap<Position, Field>();
 		movingObjects = new ArrayList<MovingObject>();
@@ -71,14 +76,17 @@ public class Board {
 		Field currentField = gameArea.get(current);
 		Field nextField = gameArea.get(next);
 		
-		//check if move is possible
-		if (!nextField.isWall()) {
-			movingObject.setCurrentPosition(next);
-			nextField.addObject(movingObject);
-			currentField.removeObject(movingObject);
-			notifyListener(new HasMovedEvent(current, next, movingObject));
-		} else {
-			notifyListener(new MoveNotPossibleEvent(movingObject));
+		//if the game is not over yet
+		if (!isGameOver()) {
+			//check if move is possible
+			if (!nextField.isWall()) {
+				movingObject.setCurrentPosition(next);
+				nextField.addObject(movingObject);
+				currentField.removeObject(movingObject);
+				notifyListener(new HasMovedEvent(current, next, movingObject));
+			} else {
+				notifyListener(new MoveNotPossibleEvent(movingObject));
+			}			
 		}
 	}
 
@@ -228,7 +236,22 @@ public class Board {
 	}
 	
 	private void nextLevel() {
+		level++;
 		initLevel();
+	}
+	
+	/**
+	 * @return true if the game is over
+	 */
+	public boolean isGameOver() {
+		return gameOver;
+	}
+	
+	/** true = gameOver
+	 * @param gameOver
+	 */
+	public void setGameOver(boolean gameOver) {
+		this.gameOver = gameOver;
 	}
 
 	/** Adds listener for board.
@@ -300,7 +323,5 @@ public class Board {
 		for (Field f : gameArea.values()) {
 			f.removeListener(listener);
 		}
-
 	}	
-
 }

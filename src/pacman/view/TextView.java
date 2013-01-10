@@ -26,7 +26,7 @@ public class TextView implements PacmanView {
 
 	@Override
 	public void bonusObjectEaten(BonusObjectEatenEvent event) {
-		System.out.println("Pac-Man eats" + event.getSource().getName());
+		System.out.println("Pac-Man eats " + event.getSource().getName());
 	}
 
 	@Override
@@ -38,7 +38,6 @@ public class TextView implements PacmanView {
 	@Override
 	public void gameOver(GameOverEvent event) {
 		System.out.println("Ghost kills PacMan – Game Over");		
-		System.exit(0);
 	}
 
 	@Override

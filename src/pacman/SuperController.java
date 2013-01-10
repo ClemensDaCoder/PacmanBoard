@@ -29,7 +29,7 @@ public class SuperController {
 		//start game
 		board.initLevel();
 		
-		while(true) {
+		while(!board.isGameOver()) {
 			board.nextRound();
 		}
 	}

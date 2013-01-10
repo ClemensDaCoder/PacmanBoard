@@ -49,9 +49,8 @@ public class Field {
 			} 
 			if (containsPacman() && containsGhost()) {
 				notifyListener(new GameOverEvent(this));
-				//TODO: end game
-				//throw event deswegen
-//				System.exit(0);
+				//tell the board the game is over;
+				Board.getInstance().setGameOver(true);
 			}
 			//room for additional items like key and stuff
 		}
