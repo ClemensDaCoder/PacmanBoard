@@ -8,13 +8,14 @@ import pacman.model.GridObject;
  *
  */
 public abstract class BonusObject extends GridObject {
-	
-//	public BonusObject(String name) {
-//		super(name);
-//	}
-	
+		
 	private int value;
 	
+	/** Creates a new BonusObject.
+	 * 
+	 * @param name
+	 * @param value
+	 */
 	public BonusObject(String name, int value) {
 		super(name);
 		this.value = value;
