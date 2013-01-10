@@ -42,7 +42,6 @@ public class Board {
 		gameArea = new HashMap<Position, Field>();
 		movingObjects = new ArrayList<MovingObject>();
 		initGameArea();
-		//	startLevel();
 	}
 	
 	/** Move all movable objects on board.
@@ -71,7 +70,8 @@ public class Board {
 
 		Field currentField = gameArea.get(current);
 		Field nextField = gameArea.get(next);
-
+		
+		//check if move is possible
 		if (!nextField.isWall()) {
 			movingObject.setCurrentPosition(next);
 			nextField.addObject(movingObject);
@@ -136,9 +136,10 @@ public class Board {
 				return false;
 			}
 		}
-		PacMan pacman = new PacMan(Position.M_24, "PacMan", movingStrategy);
+		Position pacManPosition = new Position('M', 24);
+		PacMan pacman = new PacMan(pacManPosition, "PacMan", movingStrategy);
 		movingObjects.add(pacman);
-		notifyListener(new MovingObjectPlacedEvent(pacman,Position.M_24));
+		notifyListener(new MovingObjectPlacedEvent(pacman, pacManPosition));
 		return true;
 	}
 
@@ -154,7 +155,7 @@ public class Board {
 
 	private void initGameArea() {
 		Field field;
-		for (Position position : Position.values()) {
+		for (Position position : Position.getAvailablePositionsAsList()) {
 			field = new Field();
 			if (field.isEmpty()) {
 				if ((position.getX() == 'A') || (position.getX() == 'Z') || (position.getY() == 1)
@@ -184,8 +185,8 @@ public class Board {
 
 	private Position getRandomPosition() {
 		Random random = new Random();
-		int randomPositionValue = random.nextInt((Position.ROWS * Position.COLUMNS) - 1);
-		return Position.values()[randomPositionValue];
+		int randomPositionValue = random.nextInt(Position.getAvailablePositionsAsList().size());
+		return Position.getAvailablePositionsAsList().get(randomPositionValue);
 	}
 
 	private Fruit createRandomFruit() {
@@ -201,7 +202,7 @@ public class Board {
 	private void initPellets() {
 		Field field;
 		remainingPellets = 0;
-		for (Position position : Position.values()) {
+		for (Position position : Position.getAvailablePositionsAsList()) {
 			field = gameArea.get(position);
 			if (field.isEmpty()) {
 				field.addObject(new Pellet());
