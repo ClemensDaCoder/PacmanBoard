@@ -30,7 +30,7 @@ public class SuperController {
 		board.initLevel();
 		
 		while(true) {
-			board.start();
+			board.nextRound();
 		}
 	}
 	

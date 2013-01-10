@@ -47,7 +47,7 @@ public class Board {
 	/** Move all movable objects on board.
 	 * 
 	 */
-	public void start() {
+	public void nextRound() {
 		for (MovingObject movingObject : movingObjects) {
 			moveObject(movingObject, movingObject.getMoveDirection());
 			Field field = gameArea.get(movingObject.getCurrentPosition());
