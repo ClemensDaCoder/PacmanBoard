@@ -2,8 +2,8 @@ package pacman.model.move;
 
 import pacman.model.Direction;
 
-public abstract class MovingStrategy {
+public interface MovingStrategy {
 	
-	public abstract Direction getMoveDirection();
+	public  Direction getMoveDirection();
 
 }
