@@ -9,20 +9,36 @@ public abstract class MovingObject extends GridObject {
 	private Position currentPosition;
 	private MovingStrategy movingStrategy;
 	
+	/** Creates a new MovingObject.
+	 * 
+	 * @param position
+	 * @param name
+	 * @param movingStrategy
+	 */
 	public MovingObject(Position position, String name, MovingStrategy movingStrategy) {
 		super(name);
 		this.currentPosition = position;
 		this.movingStrategy = movingStrategy;
 	}
 
+	/**
+	 * @return current {@link Position} of MovingObject.
+	 */
 	public Position getCurrentPosition() {
 		return currentPosition;
 	}
 
+	/** Sets the current {@link Position} of MovingObject.
+	 * 
+	 * @param currentPosition
+	 */
 	public void setCurrentPosition(Position currentPosition) {
 		this.currentPosition = currentPosition;
 	}	
 	
+	/**
+	 * @return the {@link Direction} the MovingObject is heading.
+	 */
 	public Direction getMoveDirection() {
 		return movingStrategy.getMoveDirection();
 	}
