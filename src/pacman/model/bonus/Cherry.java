@@ -6,6 +6,9 @@ package pacman.model.bonus;
  */
 public class Cherry extends Fruit {
 	
+	/** Creates anew Cherry object.
+	 * 
+	 */
 	public Cherry() {
 		super("Cherry", Fruit.CHERRY_VALUE);
 	}
