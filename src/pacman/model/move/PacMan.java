@@ -9,8 +9,4 @@ public class PacMan extends MovingObject {
 		super(position, name, movingStrategy);
 	}
 	
-//	public PacMan(Position position) {
-//		super(position, "PacMan", new RandomMovingStrategy());
-//	}
-
 }
