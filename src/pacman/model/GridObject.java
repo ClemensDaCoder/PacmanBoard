@@ -8,6 +8,9 @@ public abstract class GridObject {
 	
 	private String name;
 	
+	/** Creates a new GridObject.
+	 * @param name
+	 */
 	public GridObject(String name) {
 		this.name = name;
 	}
