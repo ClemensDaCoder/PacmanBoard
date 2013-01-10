@@ -10,6 +10,9 @@ public class PacManGame {
 	private Board board;
 	private PacmanView view;
 	
+	/** Creates a new PacManGame.
+	 * 
+	 */
 	PacManGame() {
 		//create model
 		board = Board.getInstance();
@@ -19,8 +22,7 @@ public class PacManGame {
 		board.addFieldListeners(view);
 		board.addListener(view);
 		
-		
-		
+		//add Pacman and some enemies
 		board.addPacman(new RandomMovingStrategy());
 		board.addGhost(new RandomMovingStrategy());
 		board.addGhost(new RandomMovingStrategy());
