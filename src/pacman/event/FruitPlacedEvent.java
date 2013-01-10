@@ -10,6 +10,11 @@ public class FruitPlacedEvent extends EventObject {
 	Fruit fruit;
 	Position position;
 
+	/** Creates a new FruitPlacedEvent. 
+	 * 
+	 * @param source
+	 * @param pos
+	 */
 	public FruitPlacedEvent(Fruit source, Position pos) {
 		super(source);
 		this.fruit = source;

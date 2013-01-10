@@ -6,6 +6,10 @@ import pacman.model.Field;
 
 public class GameOverEvent extends EventObject {
 
+	/** Creates a new GameOverEvent.
+	 * 
+	 * @param source
+	 */
 	public GameOverEvent(Field source) {
 		super(source);
 	}

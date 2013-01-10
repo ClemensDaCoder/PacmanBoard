@@ -6,8 +6,10 @@ import pacman.model.bonus.BonusObject;
 
 public class BonusObjectEatenEvent extends EventObject {
 
-
-
+	/** Creates a BonusObjectEatenEvent.
+	 * 
+	 * @param source
+	 */
 	public BonusObjectEatenEvent(BonusObject source) {
 		super(source);
 	}

@@ -10,6 +10,10 @@ import pacman.model.move.MovingObject;
 public class MoveNotPossibleEvent extends EventObject {
 
 
+	/** Creates a new MoveNotPossibleEvent.
+	 * 
+	 * @param movingObject
+	 */
 	public MoveNotPossibleEvent(MovingObject movingObject) {
 		super(movingObject);
 	}
