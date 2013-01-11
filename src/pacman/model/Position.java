@@ -3,7 +3,7 @@ package pacman.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Position {
+public final class Position {
 
 	public static int ROWS_MAX = 35;
 	public static int ROWS_MIN = 1;
