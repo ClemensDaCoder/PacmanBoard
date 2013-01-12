@@ -80,14 +80,14 @@
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <enumeration id="11" corner="BOTTOM_RIGHT" language="java" name="pacman.model.Position" project="SE05_Pacman" 
+  <class id="11" corner="BOTTOM_RIGHT" language="java" name="pacman.model.Position" project="SE05_Pacman" 
     file="/SE05_Pacman/src/pacman/model/Position.java" binary="false">    
     <position height="218" width="265" x="953" y="167"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
-  </enumeration>  
+  </class>  
   <enumeration id="12" corner="BOTTOM_RIGHT" language="java" name="pacman.model.Direction" project="SE05_Pacman" 
     file="/SE05_Pacman/src/pacman/model/Direction.java" binary="false">    
     <position height="-1" width="-1" x="1113" y="493"/>    
@@ -129,7 +129,7 @@
     </display>  
   </interface>  
   <class id="17" corner="BOTTOM_RIGHT" language="java" name="pacman.PacManGame" project="SE05_Pacman" 
-    file="/SE05_Pacman/src/pacman/SuperController.java" binary="false">    
+    file="/SE05_Pacman/src/pacman/PacManGame.java" binary="false">    
     <position height="-1" width="-1" x="1458" y="328"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
@@ -152,110 +152,138 @@
       <operations public="true" package="false" protected="false" private="false"/>    
     </display>  
   </class>  
-  <generalization id="20">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="16"/>  
-  </generalization>  
-  <association id="21">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="22" name="objects"/>      
-      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="24">    
+  <interface id="20" corner="BOTTOM_RIGHT" language="java" name="pacman.model.move.MovingStrategy" project="SE05_Pacman" 
+    file="/SE05_Pacman/src/pacman/model/move/MovingStrategy.java" binary="false">    
+    <position height="-1" width="-1" x="689" y="259"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class id="21" corner="BOTTOM_RIGHT" language="java" name="pacman.model.move.RandomMovingStrategy" 
+    project="SE05_Pacman" file="/SE05_Pacman/src/pacman/model/move/RandomMovingStrategy.java" binary="false">    
+    <position height="-1" width="-1" x="688" y="66"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <association id="22">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="25" name="currentPosition"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
+      <attribute id="23" name="movingStrategy"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
+    <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="27">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <generalization id="29">    
+  <generalization id="25">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <generalization id="30">    
-    <end type="SOURCE" refId="8"/>    
+  <generalization id="26">    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <generalization id="31">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
   </generalization>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <association id="33">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="34" name="view"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
+  <association id="28">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="29" name="instance"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="36">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="15"/>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="8"/>  
   </generalization>  
-  <association id="37">    
+  <association id="32">    
     <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="38" name="gameArea"/>      
-      <multiplicity id="39" minimum="0" maximum="2147483647"/>    
+      <attribute id="33" name="gameArea"/>      
+      <multiplicity id="34" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="40">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="16"/>  
   </generalization>  
-  <generalization id="41">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="42">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <association id="43">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="44" name="board"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
+  <association id="36">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="37" name="currentPosition"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
+    <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="46">    
+  <association id="39">    
     <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="47" name="movingObjects"/>      
-      <multiplicity id="48" minimum="0" maximum="2147483647"/>    
+      <attribute id="40" name="movingObjects"/>      
+      <multiplicity id="41" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="49">    
+  <generalization id="42">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="43">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="44" name="objects"/>      
+      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="46">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <realization id="47">    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="13"/>  
   </realization>  
-  <association id="50">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="51" name="instance"/>      
-      <multiplicity id="52" minimum="0" maximum="1"/>    
+  <generalization id="48">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="49">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="51">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="52" name="board"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="55" name="view"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="57">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="58">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     visibility="true">    
     <attributes public="true" package="false" protected="false" private="false"/>    
