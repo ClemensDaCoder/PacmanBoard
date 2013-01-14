@@ -2,6 +2,11 @@ package pacman.model.move;
 
 import pacman.model.Position;
 
+/** Represents a Ghost.
+ * 
+ * @author mwe
+ *
+ */
 public class Ghost extends MovingObject {
 	
 	/** Creates a new Ghost object.

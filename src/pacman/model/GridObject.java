@@ -15,6 +15,9 @@ public abstract class GridObject {
 		this.name = name;
 	}
 	
+	/**
+	 * @return name of GridObject.
+	 */
 	public String getName() {
 		return name;
 	}

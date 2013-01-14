@@ -24,6 +24,12 @@ import pacman.model.move.MovingObject;
 import pacman.model.move.MovingStrategy;
 import pacman.model.move.PacMan;
 
+/** Singleton which is responsible for moving around {@link MovingObject} instances on available {@link Field} instances.
+ * Also keeps track of the game score.
+ * 
+ * @author mwe
+ *
+ */
 public class Board {
 
 	private static Board instance = null;

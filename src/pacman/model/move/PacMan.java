@@ -3,6 +3,11 @@ package pacman.model.move;
 import pacman.model.Position;
 
 
+/** Represents Pacman.
+ * 
+ * @author mwe
+ *
+ */
 public class PacMan extends MovingObject {
 	
 	/** Creates a new PacMan object.

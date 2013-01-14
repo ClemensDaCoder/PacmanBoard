@@ -2,7 +2,8 @@ package pacman.model.bonus;
 
 import pacman.model.Board;
 
-/**
+/** Represents a Pellet.
+ * 
  * @author mwe
  *
  */

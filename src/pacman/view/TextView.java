@@ -10,6 +10,11 @@ import pacman.event.NextLevelEvent;
 import pacman.event.ScoreChangedEvent;
 
 
+/** Textual representation of Pacman.
+ * 
+ * @author mwe
+ *
+ */
 public class TextView implements PacmanView {
 
 	@Override

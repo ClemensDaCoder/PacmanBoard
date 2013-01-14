@@ -1,17 +1,24 @@
 package pacman;
 
 import pacman.model.Board;
+import pacman.model.move.Ghost;
 import pacman.model.move.RandomMovingStrategy;
 import pacman.view.PacmanView;
 import pacman.view.TextView;
 
+/** PacManGame is used to control the configuration of the game.
+ * Enemies are added, etc.
+ * 
+ * @author mwe
+ *
+ */
 public class PacManGame {
 	
 	private Board board;
 	private PacmanView view;
 	
 	/** Creates a new PacManGame.
-	 * 
+	 *  Pacman is up against 4 enemies ({@link Ghost} that are trying to catch him using a {@link RandomMovingStrategy}. 
 	 */
 	PacManGame() {
 		//create model

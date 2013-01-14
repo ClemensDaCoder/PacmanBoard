@@ -1,6 +1,11 @@
 package pacman.model;
 
 
+/** Represents a wall in Pacman.
+ * 
+ * @author mwe
+ *
+ */
 public class Wall extends GridObject {
 	
 	/** Creates a new Wall object.

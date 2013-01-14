@@ -1,5 +1,11 @@
 package pacman.model.bonus;
 
+/** Commons ancestor of all bonus fruits.
+ * e.g.: {@link Peach}, {@link Cherry}
+ * 
+ * @author mwe
+ *
+ */
 public abstract class Fruit extends BonusObject {
 
 	protected static int CHERRY_VALUE = 150;

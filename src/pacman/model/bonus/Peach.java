@@ -1,6 +1,7 @@
 package pacman.model.bonus;
 
-/**
+/** Represents a Cherry.
+ * 
  * @author mwe
  *
  */

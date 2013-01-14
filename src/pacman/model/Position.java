@@ -3,6 +3,12 @@ package pacman.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Represents the coordinates of a {@link Field} that is part of the {@link Board}.
+ * Is able to determine neighbor Position in given {@link Directory}.
+ * 
+ * @author mwe
+ *
+ */
 public final class Position {
 
 	public static int ROWS_MAX = 35;
@@ -25,6 +31,11 @@ public final class Position {
 		}
 	}
 	
+	/** Creates a new instance with given coordinates.
+	 * 
+	 * @param x
+	 * @param y
+	 */
 	public Position(char x, int y) {
 		this.x = Character.toUpperCase(x);
 		this.y = y;

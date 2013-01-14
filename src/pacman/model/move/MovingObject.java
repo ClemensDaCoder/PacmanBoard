@@ -4,6 +4,11 @@ import pacman.model.Direction;
 import pacman.model.GridObject;
 import pacman.model.Position;
 
+/** Abstract super class for all objects that can move in Pacman.
+ * 
+ * @author mwe
+ *
+ */
 public abstract class MovingObject extends GridObject {
 	
 	private Position currentPosition;

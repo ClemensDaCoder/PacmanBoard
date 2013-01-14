@@ -12,6 +12,12 @@ import pacman.model.bonus.BonusObject;
 import pacman.model.move.Ghost;
 import pacman.model.move.PacMan;
 
+/** Represents a single field of the {@link Board}.
+ * A Field can be occupied by one or more {@link GridObject}s.
+ * 
+ * @author mwe
+ *
+ */
 public class Field {
 
 	public List<GridObject> objects;
