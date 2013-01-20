@@ -6,14 +6,11 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-<<<<<<< HEAD
 import pacman.model.move.MovingStrategy;
 import pacman.model.move.PacMan;
-=======
 import pacman.model.bonus.BonusObject;
 import pacman.model.bonus.Cherry;
 import pacman.model.move.Ghost;
->>>>>>> branch 'master' of https://github.com/ClemensDaCoder/PacmanBoard.git
 import pacman.model.move.RandomMovingStrategy;
 
 public class FieldTest {
