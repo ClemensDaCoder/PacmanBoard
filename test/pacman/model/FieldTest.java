@@ -6,17 +6,26 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import pacman.model.move.MovingStrategy;
+import pacman.model.move.PacMan;
+import pacman.model.move.RandomMovingStrategy;
+
 public class FieldTest {
 	
 	private Field field;
 	
 	private Wall wall;
-	private GridObject gridObject2;
+	private PacMan pacman;
+	private Position posPacman;
+	private RandomMovingStrategy strategyPacman;
 	
 	@Before
 	public void setUp() {
 		field = new Field();
 		wall = new Wall();
+		posPacman = new Position('A', 1);
+		strategyPacman = new RandomMovingStrategy();
+		pacman = new PacMan(posPacman, "Pacman", strategyPacman);
 	}
 	
 	@Test
@@ -38,6 +47,15 @@ public class FieldTest {
 		assertFalse(field.isEmpty());
 		field.removeObject(wall);
 		assertTrue(field.isEmpty());
+	}
+	
+	@Test
+	public void testContainsPacman() {
+		assertFalse(field.containsPacman());
+		field.addObject(pacman);
+		assertTrue(field.containsPacman());
+		field.removeObject(pacman);
+		assertFalse(field.containsPacman());
 	}
 
 }
