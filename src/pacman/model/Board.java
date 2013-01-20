@@ -162,7 +162,6 @@ public class Board {
 	 * 
 	 */
 	public void initLevel() {
-//		initGameArea();
 		initFruit();
 		initPellets();
 	}

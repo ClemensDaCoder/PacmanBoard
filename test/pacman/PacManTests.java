@@ -8,9 +8,10 @@ import pacman.model.BoardTest;
 import pacman.model.FieldTest;
 import pacman.model.PositionTest;
 import pacman.model.bonus.BonusObjectTest;
+import pacman.model.move.MovingObjectTest;
 
 @RunWith(Suite.class)
-@SuiteClasses({PositionTest.class, FieldTest.class, BonusObjectTest.class, BoardTest.class })
+@SuiteClasses({PositionTest.class, FieldTest.class, BonusObjectTest.class, BoardTest.class, MovingObjectTest.class })
 public class PacManTests {
 
 }
