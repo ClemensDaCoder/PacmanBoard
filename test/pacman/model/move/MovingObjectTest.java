@@ -1,6 +1,3 @@
-/**
- * 
- */
 package pacman.model.move;
 
 import static org.junit.Assert.*;
@@ -31,6 +28,7 @@ public class MovingObjectTest {
 	String invalidName;
 	RandomMovingStrategy invalidStrategy;
 	PacMan invalidPacMan;
+	
 	@Before
 	public void setUp() {
 		strategy = new RandomMovingStrategy();
@@ -78,3 +76,4 @@ public class MovingObjectTest {
 	//TODO: RandomMovingStrategy, MovingObject.getMoveDirection
 
 }
+
