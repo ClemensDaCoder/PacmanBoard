@@ -6,8 +6,14 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+<<<<<<< HEAD
 import pacman.model.move.MovingStrategy;
 import pacman.model.move.PacMan;
+=======
+import pacman.model.bonus.BonusObject;
+import pacman.model.bonus.Cherry;
+import pacman.model.move.Ghost;
+>>>>>>> branch 'master' of https://github.com/ClemensDaCoder/PacmanBoard.git
 import pacman.model.move.RandomMovingStrategy;
 
 public class FieldTest {
@@ -56,6 +62,32 @@ public class FieldTest {
 		assertTrue(field.containsPacman());
 		field.removeObject(pacman);
 		assertFalse(field.containsPacman());
+	}
+	
+	@Test
+	public void testContainsGhost() {
+		//initially, a field should not be a wall
+		assertFalse(field.containsGhost());
+		Ghost ghost1 = new Ghost(new Position('a',13), "Ghost1", new RandomMovingStrategy());
+		field.addObject(ghost1);
+		//now field should be a wall
+		assertTrue(field.containsGhost());
+		field.removeObject(ghost1);
+		//now field should not be a wall
+		assertFalse(field.containsGhost());
+	}
+	
+	@Test
+	public void testContainsBonusObject() {
+		//initially, a field should not be a wall
+		assertFalse(field.containsBonusObject());
+		BonusObject bo = new Cherry();
+		field.addObject(bo);
+		//now field should be a wall
+		assertTrue(field.containsBonusObject());
+		field.removeObject(bo);
+		//now field should not be a wall
+		assertFalse(field.containsBonusObject());
 	}
 
 }
