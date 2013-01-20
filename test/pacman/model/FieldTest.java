@@ -24,6 +24,7 @@ public class FieldTest {
 	
 	@Before
 	public void setUp() {
+		//initializes variables for testing
 		field = new Field();
 		wall = new Wall();
 		posPacman = new Position('A', 1);
@@ -45,19 +46,25 @@ public class FieldTest {
 	
 	@Test
 	public void testIsEmpty() {
+		//field has to be empty
 		assertTrue(field.isEmpty());
 		field.addObject(wall);
+		//now field should be not empty
 		assertFalse(field.isEmpty());
 		field.removeObject(wall);
+		//now field should be empty again
 		assertTrue(field.isEmpty());
 	}
 	
 	@Test
 	public void testContainsPacman() {
+		//field should not contain pacman
 		assertFalse(field.containsPacman());
 		field.addObject(pacman);
+		//now the field should contain pacman
 		assertTrue(field.containsPacman());
 		field.removeObject(pacman);
+		//now the field should not contain pacman
 		assertFalse(field.containsPacman());
 	}
 	
