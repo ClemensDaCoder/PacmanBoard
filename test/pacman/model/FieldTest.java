@@ -14,6 +14,10 @@ import pacman.model.move.Ghost;
 import pacman.model.move.PacMan;
 import pacman.model.move.RandomMovingStrategy;
 
+/**
+ * @author mwe
+ *
+ */
 public class FieldTest {
 	
 	private Field field;

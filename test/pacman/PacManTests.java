@@ -10,6 +10,10 @@ import pacman.model.PositionTest;
 import pacman.model.bonus.BonusObjectTest;
 import pacman.model.move.MovingObjectTest;
 
+/**
+ * @author mwe
+ *
+ */
 @RunWith(Suite.class)
 @SuiteClasses({PositionTest.class, FieldTest.class, BonusObjectTest.class, BoardTest.class, MovingObjectTest.class })
 public class PacManTests {
