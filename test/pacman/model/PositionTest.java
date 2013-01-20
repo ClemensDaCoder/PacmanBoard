@@ -29,22 +29,22 @@ public class PositionTest {
 	@Test 
 	public void testNextUp() {
 		Position newPosition = position.next(Direction.UP);
-		assertEquals(newPosition, nextUpPosition);
+		assertEquals(nextUpPosition,newPosition);
 	}
 	@Test
 	public void testNextDown() {
 		Position newPosition = position.next(Direction.DOWN);
-		assertEquals(newPosition, nextDownPosition);
+		assertEquals(nextDownPosition,newPosition);
 	}
 	@Test
 	public void testNextLeft() {
 		Position newPosition = position.next(Direction.LEFT);
-		assertEquals(newPosition, nextLeftPosition);
+		assertEquals(nextLeftPosition, newPosition);
 	}
 	@Test
 	public void testNextRight() {
 		Position newPosition = position.next(Direction.RIGHT);
-		assertEquals(newPosition, nextRightPosition);
+		assertEquals(nextRightPosition, newPosition);
 	}
 	
 	@Test
