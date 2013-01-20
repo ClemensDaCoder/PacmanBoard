@@ -28,24 +28,31 @@ public class PositionTest {
 
 	@Test
 	public void testNextUp() {
+		//tests if position up returns the wanted position
 		Position newPosition = position.next(Direction.UP);
 		assertEquals(nextUpPosition, newPosition);
 	}
 
 	@Test
 	public void testNextDown() {
+		//tests if position down returns the wanted position
+
 		Position newPosition = position.next(Direction.DOWN);
 		assertEquals(nextDownPosition, newPosition);
 	}
 
 	@Test
 	public void testNextLeft() {
+		//tests if position left returns the wanted position
+
 		Position newPosition = position.next(Direction.LEFT);
 		assertEquals(nextLeftPosition, newPosition);
 	}
 
 	@Test
 	public void testNextRight() {
+		//tests if position right returns the wanted position
+
 		Position newPosition = position.next(Direction.RIGHT);
 		assertEquals(nextRightPosition, newPosition);
 	}
