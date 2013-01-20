@@ -1,6 +1,3 @@
-/**
- * 
- */
 package pacman.model.move;
 
 import static org.junit.Assert.*;
@@ -27,6 +24,11 @@ public class MovingObjectTest {
 	RandomMovingStrategy strategy;
 	Position testPos;
 	
+	Position invalidPos;
+	String invalidName;
+	RandomMovingStrategy invalidStrategy;
+	PacMan invalidPacMan;
+	
 	@Before
 	public void setUp() {
 		strategy = new RandomMovingStrategy();
@@ -37,6 +39,8 @@ public class MovingObjectTest {
 		pacmanName = "Pacman";
 		pacman = new PacMan(pacmanPos, pacmanName, strategy);
 		testPos = new Position('C', 3);
+		
+		invalidPacMan = new PacMan(invalidPos, invalidName, invalidStrategy);
 	}
 
 	@Test
@@ -57,6 +61,19 @@ public class MovingObjectTest {
 		assertEquals(testPos, pacman.getCurrentPosition());
 	}
 	
+	@Test
+	public void testInvalidParameters() {
+		//Check initial position
+		assertEquals(invalidPos, invalidPacMan.getCurrentPosition());
+		invalidPacMan.setCurrentPosition(testPos);
+		//Check new position
+		assertEquals(testPos, invalidPacMan.getCurrentPosition());
+		invalidPacMan.setCurrentPosition(invalidPos);
+		//Check if position is correct
+		assertEquals(invalidPos, invalidPacMan.getCurrentPosition());
+	}
+	
 	//TODO: RandomMovingStrategy, MovingObject.getMoveDirection
 
 }
+
