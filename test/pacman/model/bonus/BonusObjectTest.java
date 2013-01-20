@@ -32,21 +32,21 @@ public class BonusObjectTest {
 	@Test
 	public void testCherry() {
 		//test if it has the right name and value
-		assertEquals(cherry.getName(), nameCherry);
-		assertEquals(cherry.getValue(), Fruit.CHERRY_VALUE);
+		assertEquals(nameCherry,cherry.getName());
+		assertEquals(Fruit.CHERRY_VALUE,cherry.getValue() );
 	}
 
 	@Test
 	public void testPeach() {
 		//test if it has the right name and value
-		assertEquals(peach.getName(), namePeach);
-		assertEquals(peach.getValue(), Fruit.PEACH_VALUE);
+		assertEquals(namePeach , peach.getName());
+		assertEquals(Fruit.PEACH_VALUE,peach.getValue());
 	}
 	
 	@Test
 	public void testPellet() {
 		//test if it has the right name and value
-		assertEquals(pellet.getName(), namePellet);
-		assertEquals(pellet.getValue(), Pellet.PELLET_VALUE);
+		assertEquals( namePellet, pellet.getName());
+		assertEquals(Pellet.PELLET_VALUE, pellet.getValue());
 	}
 }
