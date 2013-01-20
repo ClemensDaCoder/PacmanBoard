@@ -3,9 +3,8 @@
  */
 package pacman.model.bonus;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,7 +15,6 @@ import org.junit.Test;
 public class BonusObjectTest {
 
 	String nameCherry, namePeach, namePellet;
-	int valPeach, valCherry, valPellet;
 	Cherry cherry;
 	Peach peach;
 	Pellet pellet;
@@ -24,11 +22,8 @@ public class BonusObjectTest {
 	@Before
 	public void setUp(){
 		nameCherry = "Cherry";
-		valCherry = 150;
 		namePeach = "Peach";
-		valPeach = 100;
 		namePellet = "Pellet";
-		valPellet = 10;
 		cherry = new Cherry();
 		peach = new Peach();
 		pellet = new Pellet();
@@ -38,20 +33,20 @@ public class BonusObjectTest {
 	public void testCherry() {
 		//test if it has the right name and value
 		assertEquals(cherry.getName(), nameCherry);
-		assertEquals(cherry.getValue(), valCherry);
+		assertEquals(cherry.getValue(), Fruit.CHERRY_VALUE);
 	}
 
 	@Test
 	public void testPeach() {
 		//test if it has the right name and value
 		assertEquals(peach.getName(), namePeach);
-		assertEquals(peach.getValue(), valPeach);
+		assertEquals(peach.getValue(), Fruit.PEACH_VALUE);
 	}
 	
 	@Test
 	public void testPellet() {
 		//test if it has the right name and value
 		assertEquals(pellet.getName(), namePellet);
-		assertEquals(pellet.getValue(), valPellet);
+		assertEquals(pellet.getValue(), Pellet.PELLET_VALUE);
 	}
 }
