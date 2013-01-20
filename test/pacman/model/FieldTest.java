@@ -70,27 +70,27 @@ public class FieldTest {
 	
 	@Test
 	public void testContainsGhost() {
-		//initially, a field should not be a wall
+		//initially, a field should not be a Ghost
 		assertFalse(field.containsGhost());
 		Ghost ghost1 = new Ghost(new Position('a',13), "Ghost1", new RandomMovingStrategy());
 		field.addObject(ghost1);
-		//now field should be a wall
+		//now field should be a Ghost
 		assertTrue(field.containsGhost());
 		field.removeObject(ghost1);
-		//now field should not be a wall
+		//now field should not be a Ghost
 		assertFalse(field.containsGhost());
 	}
 	
 	@Test
 	public void testContainsBonusObject() {
-		//initially, a field should not be a wall
+		//initially, a field should not be a BonusObject
 		assertFalse(field.containsBonusObject());
 		BonusObject bo = new Cherry();
 		field.addObject(bo);
-		//now field should be a wall
+		//now field should be a BonusObject
 		assertTrue(field.containsBonusObject());
 		field.removeObject(bo);
-		//now field should not be a wall
+		//now field should not be a BonusObject
 		assertFalse(field.containsBonusObject());
 	}
 
