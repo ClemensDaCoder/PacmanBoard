@@ -9,6 +9,9 @@ public class PositionTest {
 	
 	private Position position;
 	private Position nextUpPosition;
+	private Position nextDownPosition;
+	private Position nextLeftPosition;
+	private Position nextRightPosition;
 	private char startXCoordinate;
 	private int startYCoordinate;
 	
@@ -18,12 +21,30 @@ public class PositionTest {
 		startYCoordinate = 5;
 		position = new Position(startXCoordinate, startYCoordinate);
 		nextUpPosition = new Position(startXCoordinate, startYCoordinate+1);
+		nextDownPosition = new Position(startXCoordinate, startYCoordinate-1);
+		nextLeftPosition = new Position( (char)(startXCoordinate-1 ), startYCoordinate);
+		nextRightPosition = new Position( (char)(startXCoordinate+ 1 ), startYCoordinate);
 	}
 	
-	@Test
+	@Test 
 	public void testNextUp() {
 		Position newPosition = position.next(Direction.UP);
 		assertEquals(newPosition, nextUpPosition);
+	}
+	@Test
+	public void testNextDown() {
+		Position newPosition = position.next(Direction.DOWN);
+		assertEquals(newPosition, nextDownPosition);
+	}
+	@Test
+	public void testNextLeft() {
+		Position newPosition = position.next(Direction.LEFT);
+		assertEquals(newPosition, nextLeftPosition);
+	}
+	@Test
+	public void testNextRight() {
+		Position newPosition = position.next(Direction.RIGHT);
+		assertEquals(newPosition, nextRightPosition);
 	}
 	
 	@Test
