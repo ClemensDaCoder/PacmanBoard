@@ -93,5 +93,10 @@ public class FieldTest {
 		//now field should not be a BonusObject
 		assertFalse(field.containsBonusObject());
 	}
+	
+	@Test
+	public void testWall() {
+		wall = new Wall("Wall");
+	}
 
 }

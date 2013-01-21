@@ -1,17 +1,22 @@
 package pacman.model;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import pacman.model.move.RandomMovingStrategy;
+
 public class BoardTest {
 	
 	private Board board;
+	private RandomMovingStrategy pacmanStrategy;
 	
 	@Before
 	public void setUp() {
 		board = Board.getInstance();
+		pacmanStrategy = new RandomMovingStrategy();
 	}
 	
 	/** resets the singleton instance back to null. It's not a good idea to use a Singleton if you want to do some unit tests.
@@ -60,6 +65,14 @@ public class BoardTest {
 		//score should be 10
 		assertEquals(scoreValue, board.getScore());
 		
+	}
+	
+	@Test
+	public void testAddPacman() {
+		//Check if you can add one pacman
+		assertTrue(board.addPacman(pacmanStrategy));
+		//has to false, because a board can only have one pacman
+		assertFalse(board.addPacman(pacmanStrategy));
 	}
 
 }
