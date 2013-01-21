@@ -79,4 +79,12 @@ public class BoardTest {
 		assertFalse(board.addPacman(pacmanStrategy));
 	}
 
+	@Test
+	public void testGameOver() {
+		//game must not be over
+		assertFalse(board.isGameOver());
+		board.setGameOver(true);
+		//now game over has to be true
+		assertTrue(board.isGameOver());
+	}
 }
