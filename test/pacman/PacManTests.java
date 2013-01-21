@@ -6,16 +6,18 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import pacman.model.BoardTest;
 import pacman.model.FieldTest;
+import pacman.model.GridObjectTest;
 import pacman.model.PositionTest;
 import pacman.model.bonus.BonusObjectTest;
 import pacman.model.move.MovingObjectTest;
 
 /**
  * @author mwe
- *
+ * 
  */
 @RunWith(Suite.class)
-@SuiteClasses({PositionTest.class, FieldTest.class, BonusObjectTest.class, BoardTest.class, MovingObjectTest.class })
+@SuiteClasses({ PositionTest.class, FieldTest.class, BonusObjectTest.class,
+		BoardTest.class, MovingObjectTest.class, GridObjectTest.class })
 public class PacManTests {
 
 }
