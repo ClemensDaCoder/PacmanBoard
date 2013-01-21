@@ -10,7 +10,7 @@ import org.junit.Test;
 
 /**
  * @author Manuel
- *
+ * 
  */
 public class BonusObjectTest {
 
@@ -18,9 +18,9 @@ public class BonusObjectTest {
 	Cherry cherry;
 	Peach peach;
 	Pellet pellet;
-	
+
 	@Before
-	public void setUp(){
+	public void setUp() {
 		nameCherry = "Cherry";
 		namePeach = "Peach";
 		namePellet = "Pellet";
@@ -31,22 +31,22 @@ public class BonusObjectTest {
 
 	@Test
 	public void testCherry() {
-		//test if it has the right name and value
-		assertEquals(nameCherry,cherry.getName());
-		assertEquals(Fruit.CHERRY_VALUE,cherry.getValue() );
+		// test if it has the right name and value
+		assertEquals(nameCherry, cherry.getName());
+		assertEquals(Fruit.CHERRY_VALUE, cherry.getValue());
 	}
 
 	@Test
 	public void testPeach() {
-		//test if it has the right name and value
-		assertEquals(namePeach , peach.getName());
-		assertEquals(Fruit.PEACH_VALUE,peach.getValue());
+		// test if it has the right name and value
+		assertEquals(namePeach, peach.getName());
+		assertEquals(Fruit.PEACH_VALUE, peach.getValue());
 	}
-	
+
 	@Test
 	public void testPellet() {
-		//test if it has the right name and value
-		assertEquals( namePellet, pellet.getName());
+		// test if it has the right name and value
+		assertEquals(namePellet, pellet.getName());
 		assertEquals(Pellet.PELLET_VALUE, pellet.getValue());
 	}
 }

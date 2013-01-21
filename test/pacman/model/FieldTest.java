@@ -6,13 +6,18 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import pacman.model.move.MovingStrategy;
-import pacman.model.move.PacMan;
 import pacman.model.bonus.BonusObject;
 import pacman.model.bonus.Cherry;
+import pacman.model.bonus.Peach;
+import pacman.model.bonus.Pellet;
 import pacman.model.move.Ghost;
+import pacman.model.move.PacMan;
 import pacman.model.move.RandomMovingStrategy;
 
+/**
+ * @author mwe
+ *
+ */
 public class FieldTest {
 	
 	private Field field;
@@ -95,8 +100,27 @@ public class FieldTest {
 	}
 	
 	@Test
-	public void testWall() {
-		wall = new Wall("Wall");
+	public void testComputeState() {
+		//add pacman and pellet to field
+		field.addObject(pacman);
+		Pellet pellet = new Pellet();
+		field.addObject(pellet);
+		
+		field.computeState();
+		//now field should only contain pacman - pellet should be gone
+		assertTrue(field.containsPacman());
+		assertFalse(field.containsBonusObject());
+		assertFalse(field.isEmpty());
+		
+		//pacman should also be able to eat multiple bonus objects on one field
+		field.addObject(pellet);
+		field.addObject(new Peach());
+		field.computeState();
+		assertTrue(field.containsPacman());
+		assertFalse(field.containsBonusObject());
+		assertFalse(field.isEmpty());
+		
+		//pacman is killed by ghost cannot be tested properly without modifying code - see our "Fehlerprotokoll"
 	}
 
 }
